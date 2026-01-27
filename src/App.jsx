@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import daily from "./data/daily_delay_summary.json";
 import stats from "./data/statistics.json";
 
@@ -18,21 +18,52 @@ function classificationDotColor(cls) {
   if (s.includes("early")) return "#3b82f6";
   if (s.includes("late")) return "#ef4444";
   if (s.includes("error")) return "#f59e0b";
+  if (s.includes("congestion")) return "#8b5cf6";
   return "#6b7280";
 }
+
+// Parse Key_Evidence from pipe-separated format to array of bullets
+function parseEvidence(evidence) {
+  if (!evidence) return [];
+  return evidence
+    .split("|")
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map((item) => item.replace(/^[•\-]\s*/, "").trim());
+}
+
+// Classification options for dropdown
+const CLASSIFICATION_OPTIONS = [
+  "Early Arrival",
+  "Late Arrival",
+  "Late Tow Off",
+  "Taxiway/Alleyway Congestion",
+  "Gate Occupancy",
+  "Ramp Congestion",
+  "Weather",
+  "ATC Ground Stop",
+  "Mechanical Issue",
+  "Error - No Delay Occurred",
+  "Unknown",
+];
 
 export default function App() {
   const [q, setQ] = useState("");
   const [airline, setAirline] = useState("All");
   const [classification, setClassification] = useState("All");
-  const [minConfidence, setMinConfidence] = useState(0);
   const [expanded, setExpanded] = useState(() => new Set());
+
+  // User preferences
+  const [callsignFormat, setCallsignFormat] = useState("IATA"); // "IATA" or "ICAO"
+  const [timezone, setTimezone] = useState("UTC"); // "UTC" or "PT"
+
+  // Feedback tracking - stores user-selected classifications
+  const [labelFeedback, setLabelFeedback] = useState(() => ({}));
 
   const airlineOptions = useMemo(() => {
     const set = new Set();
     for (const r of daily) {
       const f = String(r.Flight || "");
-      // Airline inferred from leading letters, e.g., UA662 -> UA
       const m = f.match(/^[A-Za-z]+/);
       if (m) set.add(m[0].toUpperCase());
     }
@@ -55,11 +86,7 @@ export default function App() {
       const cls = String(r.VB_Delay_Classification || "");
       if (classification !== "All" && cls !== classification) return false;
 
-      const conf = Number(r.VB_Confidence_Percent ?? 0);
-      if (conf < minConfidence) return false;
-
       if (!qq) return true;
-      // free-text match across a few useful fields
       const hay = [
         r.Date, r.Flight, r.Flight_IATA, r.Flight_ICAO,
         r.Scheduled_Arrival_UTC, r.Actual_Landing_UTC, r.Gate_Arrival_UTC,
@@ -68,7 +95,7 @@ export default function App() {
       ].map((x) => String(x ?? "")).join(" ").toLowerCase();
       return hay.includes(qq);
     });
-  }, [q, airline, classification, minConfidence]);
+  }, [q, airline, classification]);
 
   const avgTaxiDelay = kpiValue("Average Taxi Delay (min)");
   const maxTaxiDelay = kpiValue("Max Taxi Delay (min)");
@@ -84,6 +111,113 @@ export default function App() {
       return next;
     });
   }
+
+  // Get flight number based on user preference
+  function getFlightNumber(r) {
+    return callsignFormat === "ICAO" ? fmt(r.Flight_ICAO) : fmt(r.Flight_IATA);
+  }
+
+  // Get time based on user preference
+  function getScheduledArrival(r) {
+    return timezone === "PT" ? fmt(r.Actual_Landing_PT?.replace(/^0/, "")) + " PT" : fmt(r.Scheduled_Arrival_UTC);
+  }
+
+  function getActualLanding(r) {
+    return timezone === "PT" ? fmt(r.Actual_Landing_PT) : fmt(r.Actual_Landing_UTC);
+  }
+
+  function getGateArrival(r) {
+    return timezone === "PT" ? fmt(r.Gate_Arrival_PT) : fmt(r.Gate_Arrival_UTC);
+  }
+
+  // Handle classification feedback
+  function handleLabelChange(flightId, newLabel) {
+    setLabelFeedback((prev) => ({
+      ...prev,
+      [flightId]: newLabel,
+    }));
+  }
+
+  // Get current label (user feedback or original)
+  function getCurrentLabel(r) {
+    const id = String(r.Flight_ID || `${r.Flight}-${r.Date}`);
+    return labelFeedback[id] || r.VB_Delay_Classification;
+  }
+
+  // Export to Excel (CSV format that Excel can open)
+  const exportToExcel = useCallback(() => {
+    const headers = [
+      "Date",
+      "Flight",
+      "Flight_IATA",
+      "Flight_ICAO",
+      "Origin",
+      "Aircraft_Type",
+      "Gate",
+      "Scheduled_Arrival_UTC",
+      "Actual_Landing_UTC",
+      "Gate_Arrival_UTC",
+      "Actual_Landing_PT",
+      "Gate_Arrival_PT",
+      "Taxi_Delay_Minutes",
+      "Schedule_Variance_Minutes",
+      "Schedule_Status",
+      "Original_Classification",
+      "User_Classification",
+      "ATC_Messages_Found",
+      "Evidence_Items",
+      "Analysis_Quality",
+      "Key_Evidence",
+      "Flight_ID",
+    ];
+
+    const rows = filtered.map((r) => {
+      const id = String(r.Flight_ID || `${r.Flight}-${r.Date}`);
+      const userLabel = labelFeedback[id] || "";
+      return [
+        r.Date,
+        r.Flight,
+        r.Flight_IATA,
+        r.Flight_ICAO,
+        r.Origin,
+        r.Aircraft_Type,
+        r.Gate,
+        r.Scheduled_Arrival_UTC,
+        r.Actual_Landing_UTC,
+        r.Gate_Arrival_UTC,
+        r.Actual_Landing_PT,
+        r.Gate_Arrival_PT,
+        r.Taxi_Delay_Minutes,
+        r.Schedule_Variance_Minutes,
+        r.Schedule_Status,
+        r.VB_Delay_Classification,
+        userLabel,
+        r.ATC_Messages_Found,
+        r.Evidence_Items,
+        r.Analysis_Quality,
+        r.Key_Evidence,
+        r.Flight_ID,
+      ].map((val) => {
+        // Escape quotes and wrap in quotes if contains comma or quote
+        const str = String(val ?? "");
+        if (str.includes(",") || str.includes('"') || str.includes("\n")) {
+          return `"${str.replace(/"/g, '""')}"`;
+        }
+        return str;
+      });
+    });
+
+    const csv = [headers.join(","), ...rows.map((r) => r.join(","))].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `KSFO_Taxi_Delays_${new Date().toISOString().split("T")[0]}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }, [filtered, labelFeedback]);
 
   return (
     <div className="container">
@@ -129,17 +263,26 @@ export default function App() {
             <option key={c} value={c}>{c}</option>
           ))}
         </select>
-        <label className="subtle" style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          Min confidence
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={minConfidence}
-            onChange={(e) => setMinConfidence(Number(e.target.value))}
-          />
-          <span style={{ width: 34, textAlign: "right" }}>{minConfidence}%</span>
+      </div>
+
+      <div className="preferences">
+        <label className="pref-label">
+          <span className="subtle">Callsign:</span>
+          <select className="select small" value={callsignFormat} onChange={(e) => setCallsignFormat(e.target.value)}>
+            <option value="IATA">IATA (AA1476)</option>
+            <option value="ICAO">ICAO (AAL1476)</option>
+          </select>
         </label>
+        <label className="pref-label">
+          <span className="subtle">Timezone:</span>
+          <select className="select small" value={timezone} onChange={(e) => setTimezone(e.target.value)}>
+            <option value="UTC">UTC</option>
+            <option value="PT">Pacific Time</option>
+          </select>
+        </label>
+        <button className="exportBtn" onClick={exportToExcel}>
+          Export to Excel
+        </button>
       </div>
 
       <div className="tableWrap">
@@ -148,13 +291,12 @@ export default function App() {
             <tr>
               <th>Date</th>
               <th>Flight</th>
-              <th>Scheduled arrival (UTC)</th>
-              <th>Actual landing (UTC)</th>
-              <th>Gate arrival (UTC)</th>
+              <th>Scheduled arrival ({timezone})</th>
+              <th>Actual landing ({timezone})</th>
+              <th>Gate arrival ({timezone})</th>
               <th>Taxi delay (min)</th>
               <th>Schedule variance (min)</th>
               <th>Delay classification</th>
-              <th>Confidence</th>
               <th>Details</th>
             </tr>
           </thead>
@@ -162,26 +304,25 @@ export default function App() {
             {filtered.map((r) => {
               const id = String(r.Flight_ID || `${r.Flight}-${r.Date}`);
               const isOpen = expanded.has(id);
-              const cls = r.VB_Delay_Classification;
-              const conf = Number(r.VB_Confidence_Percent ?? 0);
+              const currentLabel = getCurrentLabel(r);
+              const evidenceBullets = parseEvidence(r.Key_Evidence);
 
               return (
                 <>
                   <tr key={id}>
                     <td>{fmt(r.Date)}</td>
-                    <td>{fmt(r.Flight)}</td>
-                    <td>{fmt(r.Scheduled_Arrival_UTC)}</td>
-                    <td>{fmt(r.Actual_Landing_UTC)}</td>
-                    <td>{fmt(r.Gate_Arrival_UTC)}</td>
+                    <td>{getFlightNumber(r)}</td>
+                    <td>{getScheduledArrival(r)}</td>
+                    <td>{getActualLanding(r)}</td>
+                    <td>{getGateArrival(r)}</td>
                     <td>{fmt(r.Taxi_Delay_Minutes)}</td>
                     <td>{fmt(r.Schedule_Variance_Minutes)}</td>
                     <td>
                       <span className="badge">
-                        <span className="dot" style={{ background: classificationDotColor(cls) }} />
-                        {fmt(cls)}
+                        <span className="dot" style={{ background: classificationDotColor(currentLabel) }} />
+                        {fmt(currentLabel)}
                       </span>
                     </td>
-                    <td>{Number.isFinite(conf) ? `${conf}%` : ""}</td>
                     <td>
                       <button className="rowBtn" onClick={() => toggleRow(id)}>
                         {isOpen ? "Hide" : "Show"}
@@ -190,17 +331,73 @@ export default function App() {
                   </tr>
                   {isOpen && (
                     <tr key={id + "_details"}>
-                      <td className="details" colSpan={10}>
-                        <div className="subtle" style={{ marginBottom: 6 }}>
-                          Flight ID: <span style={{ fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" }}>{id}</span>
+                      <td className="details" colSpan={9}>
+                        <div className="details-header">
+                          <div className="subtle">
+                            Flight ID: <span className="mono">{id}</span>
+                          </div>
                         </div>
-                        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-                          <div><span className="subtle">ATC messages found:</span> <b>{fmt(r.ATC_Messages_Found)}</b></div>
-                          <div><span className="subtle">Evidence items:</span> <b>{fmt(r.Evidence_Items)}</b></div>
-                          <div><span className="subtle">Analysis quality:</span> <b>{fmt(r.Analysis_Quality)}</b></div>
-                          <div><span className="subtle">Hour of day:</span> <b>{fmt(r.Hour_of_Day)}</b></div>
+
+                        <div className="details-grid">
+                          <div className="details-section">
+                            <div className="section-title">Flight Information</div>
+                            <div className="info-row"><span className="subtle">Gate:</span> <b>{fmt(r.Gate) || "Unknown"}</b></div>
+                            <div className="info-row"><span className="subtle">Aircraft:</span> <b>{fmt(r.Aircraft_Type)}</b></div>
+                            <div className="info-row"><span className="subtle">Origin:</span> <b>{fmt(r.Origin)}</b></div>
+                            <div className="info-row"><span className="subtle">Hour of day:</span> <b>{fmt(r.Hour_of_Day)}</b></div>
+                            <div className="info-row subtle" style={{ marginTop: 8, fontSize: 12, fontStyle: "italic" }}>
+                              Prior plane at gate: Not available
+                            </div>
+                          </div>
+
+                          <div className="details-section">
+                            <div className="section-title">Analysis</div>
+                            <div className="info-row"><span className="subtle">ATC messages found:</span> <b>{fmt(r.ATC_Messages_Found)}</b></div>
+                            <div className="info-row"><span className="subtle">Evidence items:</span> <b>{fmt(r.Evidence_Items)}</b></div>
+                            <div className="info-row"><span className="subtle">Analysis quality:</span> <b>{fmt(r.Analysis_Quality)}</b></div>
+                          </div>
+
+                          <div className="details-section">
+                            <div className="section-title">Classification Feedback</div>
+                            <div className="info-row">
+                              <span className="subtle">Model suggested:</span> <b>{fmt(r.VB_Delay_Classification)}</b>
+                            </div>
+                            <label className="feedback-label">
+                              <span className="subtle">Your classification:</span>
+                              <select
+                                className="select feedback-select"
+                                value={labelFeedback[id] || ""}
+                                onChange={(e) => handleLabelChange(id, e.target.value)}
+                              >
+                                <option value="">-- Select to provide feedback --</option>
+                                {CLASSIFICATION_OPTIONS.map((opt) => (
+                                  <option key={opt} value={opt}>{opt}</option>
+                                ))}
+                              </select>
+                            </label>
+                          </div>
                         </div>
-                        <pre className="evidence">{fmt(r.Key_Evidence)}</pre>
+
+                        <div className="evidence-section">
+                          <div className="section-title">Key Evidence</div>
+                          {evidenceBullets.length > 0 ? (
+                            <ul className="evidence-list">
+                              {evidenceBullets.map((bullet, idx) => (
+                                <li key={idx}>{bullet}</li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <div className="subtle">No evidence available</div>
+                          )}
+                        </div>
+
+                        <div className="atc-section">
+                          <div className="section-title">ATC Messages</div>
+                          <div className="subtle atc-note">
+                            {r.ATC_Messages_Found} ATC messages were analyzed for this flight.
+                            Raw message data is not currently available in this view.
+                          </div>
+                        </div>
                       </td>
                     </tr>
                   )}
