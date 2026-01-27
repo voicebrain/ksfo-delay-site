@@ -1,0 +1,54 @@
+[
+  {
+    "Metric": "Analysis Date",
+    "Value": "2026-01-25"
+  },
+  {
+    "Metric": "Total Delayed Flights",
+    "Value": 14
+  },
+  {
+    "Metric": "Average Taxi Delay (min)",
+    "Value": "138.5"
+  },
+  {
+    "Metric": "Max Taxi Delay (min)",
+    "Value": "1407.3"
+  },
+  {
+    "Metric": "Flights with Schedule Data",
+    "Value": "14/14 (100.0%)"
+  },
+  {
+    "Metric": "Early Arrivals",
+    "Value": "11 (78.6%)"
+  },
+  {
+    "Metric": "On-Time Arrivals",
+    "Value": "1 (7.1%)"
+  },
+  {
+    "Metric": "Late Arrivals",
+    "Value": "2 (14.3%)"
+  },
+  {
+    "Metric": "Classification Coverage",
+    "Value": "14/14 (100.0%)"
+  },
+  {
+    "Metric": "Average Confidence",
+    "Value": "80.4%"
+  },
+  {
+    "Metric": "High Quality Analyses",
+    "Value": "14/14 (100.0%)"
+  },
+  {
+    "Metric": "Most Common Delay Type",
+    "Value": "Early Arrival"
+  },
+  {
+    "Metric": "Avg ATC Messages per Flight",
+    "Value": "357"
+  }
+]
