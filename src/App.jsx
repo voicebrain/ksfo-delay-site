@@ -302,12 +302,12 @@ export default function App() {
           <thead>
             <tr>
               <th>Flight</th>
-              <th>Scheduled arrival ({timezone})</th>
-              <th>Actual landing ({timezone})</th>
-              <th>Gate arrival ({timezone})</th>
-              <th>Taxi delay (min)</th>
-              <th>Schedule variance (min)</th>
-              <th>Delay classification</th>
+              <th>Scheduled<br />arrival ({timezone})</th>
+              <th>Actual<br />landing ({timezone})</th>
+              <th>Gate<br />arrival ({timezone})</th>
+              <th>Taxi<br />delay (min)</th>
+              <th>Schedule<br />variance (min)</th>
+              <th>Delay<br />classification</th>
               <th>Details</th>
             </tr>
           </thead>
