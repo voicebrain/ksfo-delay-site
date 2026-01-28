@@ -55,7 +55,7 @@ export default function App() {
 
   // User preferences
   const [callsignFormat, setCallsignFormat] = useState("IATA"); // "IATA" or "ICAO"
-  const [timezone, setTimezone] = useState("UTC"); // "UTC" or "PT"
+  const [timezone, setTimezone] = useState("PT"); // "UTC" or "PT"
 
   // Feedback tracking - stores user-selected classifications
   const [labelFeedback, setLabelFeedback] = useState(() => ({}));
@@ -356,7 +356,6 @@ export default function App() {
                             <div className="info-row"><span className="subtle">Gate:</span> <b>{fmt(r.Gate) || "Unknown"}</b></div>
                             <div className="info-row"><span className="subtle">Aircraft:</span> <b>{fmt(r.Aircraft_Type)}</b></div>
                             <div className="info-row"><span className="subtle">Origin:</span> <b>{fmt(r.Origin)}</b></div>
-                            <div className="info-row"><span className="subtle">Hour of day:</span> <b>{fmt(r.Hour_of_Day)}</b></div>
                             {r.Prior_Flight_At_Gate && (
                               <div className="info-row" style={{ marginTop: 8 }}>
                                 <span className="subtle">Prior plane at gate:</span> <b>{fmt(r.Prior_Flight_At_Gate)}</b>
