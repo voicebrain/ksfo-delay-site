@@ -117,9 +117,21 @@ export default function App() {
     return callsignFormat === "ICAO" ? fmt(r.Flight_ICAO) : fmt(r.Flight_IATA);
   }
 
+  // Convert UTC time string (HH:MM) to PT (UTC-8)
+  function utcToPT(utcTime) {
+    if (!utcTime) return "";
+    const [hours, minutes] = utcTime.split(":").map(Number);
+    let ptHours = hours - 8;
+    if (ptHours < 0) ptHours += 24;
+    return `${String(ptHours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+  }
+
   // Get time based on user preference
   function getScheduledArrival(r) {
-    return timezone === "PT" ? fmt(r.Actual_Landing_PT?.replace(/^0/, "")) + " PT" : fmt(r.Scheduled_Arrival_UTC);
+    if (timezone === "PT") {
+      return fmt(utcToPT(r.Scheduled_Arrival_UTC));
+    }
+    return fmt(r.Scheduled_Arrival_UTC);
   }
 
   function getActualLanding(r) {
