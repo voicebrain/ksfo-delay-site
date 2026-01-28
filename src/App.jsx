@@ -345,9 +345,14 @@ export default function App() {
                             <div className="info-row"><span className="subtle">Aircraft:</span> <b>{fmt(r.Aircraft_Type)}</b></div>
                             <div className="info-row"><span className="subtle">Origin:</span> <b>{fmt(r.Origin)}</b></div>
                             <div className="info-row"><span className="subtle">Hour of day:</span> <b>{fmt(r.Hour_of_Day)}</b></div>
-                            <div className="info-row subtle" style={{ marginTop: 8, fontSize: 12, fontStyle: "italic" }}>
-                              Prior plane at gate: Not available
-                            </div>
+                            {r.Prior_Flight_At_Gate && (
+                              <div className="info-row" style={{ marginTop: 8 }}>
+                                <span className="subtle">Prior plane at gate:</span> <b>{fmt(r.Prior_Flight_At_Gate)}</b>
+                                {r.Prior_Flight_Departure_Status && (
+                                  <span className="subtle" style={{ marginLeft: 8, fontSize: 12 }}>({r.Prior_Flight_Departure_Status})</span>
+                                )}
+                              </div>
+                            )}
                           </div>
 
                           <div className="details-section">
@@ -380,7 +385,18 @@ export default function App() {
 
                         <div className="evidence-section">
                           <div className="section-title">Key Evidence</div>
-                          {evidenceBullets.length > 0 ? (
+                          {r.Evidence_Details && r.Evidence_Details.length > 0 ? (
+                            <ul className="evidence-list">
+                              {r.Evidence_Details.map((ev, idx) => (
+                                <li key={idx}>
+                                  <span className="evidence-time">{ev.time}</span>
+                                  <span className="evidence-channel">[{ev.channel}]</span>
+                                  <span className="evidence-message">{ev.message}</span>
+                                  {ev.relevance && <div className="evidence-relevance">{ev.relevance}</div>}
+                                </li>
+                              ))}
+                            </ul>
+                          ) : evidenceBullets.length > 0 ? (
                             <ul className="evidence-list">
                               {evidenceBullets.map((bullet, idx) => (
                                 <li key={idx}>{bullet}</li>
@@ -393,10 +409,22 @@ export default function App() {
 
                         <div className="atc-section">
                           <div className="section-title">ATC Messages</div>
-                          <div className="subtle atc-note">
-                            {r.ATC_Messages_Found} ATC messages were analyzed for this flight.
-                            Raw message data is not currently available in this view.
-                          </div>
+                          {r.ATC_Messages && r.ATC_Messages.length > 0 ? (
+                            <ul className="atc-list">
+                              {r.ATC_Messages.map((msg, idx) => (
+                                <li key={idx}>
+                                  <span className="atc-time">{msg.time}</span>
+                                  <span className="atc-channel">[{msg.channel}]</span>
+                                  <span className="atc-message">{msg.message}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <div className="subtle atc-note">
+                              {r.ATC_Messages_Found} ATC messages were analyzed for this flight.
+                              No specific messages available.
+                            </div>
+                          )}
                         </div>
                       </td>
                     </tr>

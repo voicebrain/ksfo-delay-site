@@ -5,8 +5,8 @@
     "Flight_IATA": "AA1476",
     "Flight_ICAO": "AAL1476",
     "Origin": "KSFO",
-    "Aircraft_Type": "A321 ",
-    "Gate": "Unknown",
+    "Aircraft_Type": "A321",
+    "Gate": "B24",
     "Scheduled_Arrival_UTC": "12:31",
     "Actual_Landing_UTC": "11:29",
     "Gate_Arrival_UTC": "12:31",
@@ -20,9 +20,23 @@
     "ATC_Messages_Found": 167,
     "Evidence_Items": 5,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Confirms the flight landed more than 15 minutes early, triggering the early-arrival condition | • Gate B24 identified; controller immediately cautions that they may need to call ramp – hinting gate ...",
+    "Key_Evidence": "• Confirms the flight landed more than 15 minutes early, triggering the early-arrival condition | • Gate B24 identified; controller immediately cautions that they may need to call ramp – hinting gate is still occupied because aircraft arrived far ahead of plan | • Pilot has reached the ramp area only two minutes after landing but cannot proceed straight in, indicating the gate is not yet available | • Ramp places the aircraft on a holding spot (spot 1), a common procedure when gate will open once the scheduled aircraft pushes | • Shows the aircraft waited roughly an hour so that it blocked-in exactly at scheduled time, consistent with an early-arrival-driven gate wait",
     "Hour_of_Day": 11,
-    "Flight_ID": "AAL1476-1769326258-adhoc-1022p"
+    "Flight_ID": "AAL1476-1769326258-adhoc-1022p",
+    "Prior_Flight_At_Gate": null,
+    "Prior_Flight_Departure_Status": null,
+    "Evidence_Details": [
+      {"time": "03:29:10", "channel": "system", "message": "Landing time 03:29:10 with scheduled arrival 04:31:00 – schedule variance −61.8 min", "relevance": "Confirms the flight landed more than 15 minutes early, triggering the early-arrival condition"},
+      {"time": "03:29:41", "channel": "tower", "message": "American 1476 … what's your gate number? Going to Bravo 24, American 1476.", "relevance": "Gate B24 identified; controller immediately cautions that they may need to call ramp – hinting gate is still occupied"},
+      {"time": "03:31:33", "channel": "ramp_a", "message": "Ramp, good morning, American 1476 is on Alpha, going to gate Bravo 24.", "relevance": "Pilot has reached the ramp area only two minutes after landing but cannot proceed straight in"},
+      {"time": "03:32:03", "channel": "ramp_a", "message": "…enter spot 1, proceed to the gate, American 1476…", "relevance": "Ramp places the aircraft on a holding spot (spot 1)"},
+      {"time": "04:31:00", "channel": "system", "message": "Gate-in time matches original schedule (04:31:00) despite landing at 03:29:10", "relevance": "Shows the aircraft waited roughly an hour so that it blocked-in exactly at scheduled time"}
+    ],
+    "ATC_Messages": [
+      {"time": "03:24:52", "channel": "tower", "message": "San Francisco Tower, American 1476, over."},
+      {"time": "03:25:04", "channel": "tower", "message": "American 1476, San Francisco Tower, good morning, runway 28R, cleared to land."},
+      {"time": "03:29:41", "channel": "tower", "message": "American 1476 … what's your gate number? Going to Bravo 24, American 1476."}
+    ]
   },
   {
     "Date": "2026-01-25",
@@ -30,7 +44,7 @@
     "Flight_IATA": "OO5617",
     "Flight_ICAO": "SKW5617",
     "Origin": "KPSP",
-    "Aircraft_Type": "E75L ",
+    "Aircraft_Type": "E75L",
     "Gate": "F5",
     "Scheduled_Arrival_UTC": "16:40",
     "Actual_Landing_UTC": "15:53",
@@ -45,9 +59,22 @@
     "ATC_Messages_Found": 389,
     "Evidence_Items": 4,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Confirms schedule variance ≥15 min, triggering Early Arrival criteria when no higher-priority cause ... | • Aircraft is told to hold short of its gate even though gate history shows F5 vacant, typical when fl...",
+    "Key_Evidence": "• Confirms schedule variance ≥15 min, triggering Early Arrival criteria when no higher-priority cause exists | • Aircraft is told to hold short of its gate even though gate history shows F5 vacant, typical when flight shows up far ahead of planned ramp staffing window | • After almost one-hour ground hold the flight is finally cleared in, marking end of delay | • Previous flight at F5 (SKW5375) pushed 08:20—seven minutes EARLY; gate free >500 min before SKW5617 landed",
     "Hour_of_Day": 15,
-    "Flight_ID": "SKW5617-1769148407-airline-1185p"
+    "Flight_ID": "SKW5617-1769148407-airline-1185p",
+    "Prior_Flight_At_Gate": "SKW5375",
+    "Prior_Flight_Departure_Status": "7 min early (pushed 08:20)",
+    "Evidence_Details": [
+      {"time": "07:53:23", "channel": "system", "message": "Landing time captured 07:53:23 versus scheduled 08:40 → 46-minute early arrival", "relevance": "Confirms schedule variance ≥15 min, triggering Early Arrival criteria"},
+      {"time": "07:54:38", "channel": "ground", "message": "Skyway 3617 (SKW5617) … Tango, go to Foxtrot 5, turn around … contact the gate … hold you back there", "relevance": "Aircraft is told to hold short of its gate"},
+      {"time": "08:46:31", "channel": "ground", "message": "Skywest 5617 … go to Foxtrot 5 … Alpha to the ramp", "relevance": "After almost one-hour ground hold the flight is finally cleared in"},
+      {"time": "gate_history", "channel": "data", "message": "Previous flight at F5 (SKW5375) pushed 08:20—seven minutes EARLY", "relevance": "Eliminates Late Departure / gate-occupancy root causes"}
+    ],
+    "ATC_Messages": [
+      {"time": "07:48:24", "channel": "tower", "message": "Skywest 5617, San Francisco, runway 28R, cleared to land."},
+      {"time": "07:54:38", "channel": "ground", "message": "Skyway 3617 … Tango, go to Foxtrot 5, turn around … hold you back there"},
+      {"time": "08:46:31", "channel": "ground", "message": "Skywest 5617 … go to Foxtrot 5 … Alpha to the ramp"}
+    ]
   },
   {
     "Date": "2026-01-25",
@@ -55,7 +82,7 @@
     "Flight_IATA": "UA662",
     "Flight_ICAO": "UAL662",
     "Origin": "KSEA",
-    "Aircraft_Type": "A319 ",
+    "Aircraft_Type": "A319",
     "Gate": "D8",
     "Scheduled_Arrival_UTC": "16:41",
     "Actual_Landing_UTC": "15:56",
@@ -70,9 +97,22 @@
     "ATC_Messages_Found": 303,
     "Evidence_Items": 4,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Confirms flight arrived far earlier than timetable, activating Early Arrival rule | • Controller advises an extended wait immediately after landing, indicating gate not yet free because ...",
+    "Key_Evidence": "• Confirms flight arrived far earlier than timetable, activating Early Arrival rule | • Controller advises an extended wait immediately after landing, indicating gate not yet free because flight showed up too soon | • Previous aircraft at gate D8 (UAL1583) is still pushing almost 28 min after UAL662 landed | • UAL1583 scheduled OUT 08:20, actual OUT 08:22 (only +2 min) - blocking flight departed on time",
     "Hour_of_Day": 15,
-    "Flight_ID": "UAL662-1769093463-fa-1828p"
+    "Flight_ID": "UAL662-1769093463-fa-1828p",
+    "Prior_Flight_At_Gate": "UAL1583",
+    "Prior_Flight_Departure_Status": "2 min late (scheduled OUT 08:20, actual 08:22)",
+    "Evidence_Details": [
+      {"time": "07:56:15", "channel": "meta-data", "message": "Landing 07:56, scheduled 08:41 → schedule variance –44.8 min (≥15 min early)", "relevance": "Confirms flight arrived far earlier than timetable, activating Early Arrival rule"},
+      {"time": "07:58:04", "channel": "ground", "message": "About 10 minutes, I think, United 662.", "relevance": "Controller advises an extended wait immediately after landing"},
+      {"time": "08:23:55", "channel": "ground", "message": "United 1583, cleared to pushback, Delta 8.", "relevance": "Previous aircraft at gate D8 is still pushing almost 28 min after UAL662 landed"},
+      {"time": "gate_history", "channel": "gate_history", "message": "UAL1583 scheduled OUT 08:20, actual OUT 08:22 (only +2 min).", "relevance": "Shows the blocking flight departed on time"}
+    ],
+    "ATC_Messages": [
+      {"time": "07:52:12", "channel": "tower", "message": "United 662, San Francisco runway 28R, cleared to land."},
+      {"time": "07:58:04", "channel": "ground", "message": "About 10 minutes, I think, United 662."},
+      {"time": "08:23:55", "channel": "ground", "message": "United 1583, cleared to pushback, Delta 8."}
+    ]
   },
   {
     "Date": "2026-01-25",
@@ -80,7 +120,7 @@
     "Flight_IATA": "OO5313",
     "Flight_ICAO": "SKW5313",
     "Origin": "KACV",
-    "Aircraft_Type": "E75L ",
+    "Aircraft_Type": "E75L",
     "Gate": "F8",
     "Scheduled_Arrival_UTC": "16:41",
     "Actual_Landing_UTC": "16:05",
@@ -95,9 +135,23 @@
     "ATC_Messages_Found": 352,
     "Evidence_Items": 5,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Explicit SuperTug/‘under tow’ call-out shows an arrival aircraft (United 643) being towed through th... | • SKW5313 reports extended hold after landing, waiting specifically for gate F8; indicates the gate it...",
+    "Key_Evidence": "• Explicit SuperTug/'under tow' call-out shows an arrival aircraft (United 643) being towed through the Foxtrot alley, confirming an active tow-off operation | • SKW5313 reports extended hold after landing, waiting specifically for gate F8; indicates the gate itself is open but access is blocked | • Ramp control confirms SKW5313 cannot taxi in yet, implying ongoing blocking activity (tow) inside the alley | • Ramp explicitly states 'traffic in the alleyway'—tow operation traffic—prevented immediate access | • Only after the tow traffic clears is SKW5313 released toward the alley",
     "Hour_of_Day": 16,
-    "Flight_ID": "SKW5313-1769149501-airline-931p"
+    "Flight_ID": "SKW5313-1769149501-airline-931p",
+    "Prior_Flight_At_Gate": "UAL643 (being towed)",
+    "Prior_Flight_Departure_Status": "Active tow-off blocking alleyway",
+    "Evidence_Details": [
+      {"time": "08:23:35", "channel": "ground", "message": "Ground, United 643, approaching spot 9, under tow, spot 41", "relevance": "Explicit SuperTug/'under tow' call-out shows an arrival aircraft being towed through the Foxtrot alley"},
+      {"time": "08:27:44", "channel": "ramp_d", "message": "Hey, we have Skywest 5313. We've been holding way out west here on Romeo between the runways", "relevance": "SKW5313 reports extended hold after landing"},
+      {"time": "08:27:56", "channel": "ramp_d", "message": "Skywest 5313, probably going to be about 5 minutes before we get you in.", "relevance": "Ramp control confirms SKW5313 cannot taxi in yet"},
+      {"time": "08:37:07", "channel": "ramp_d", "message": "Next time you need to call me before you come over because I have traffic in the alleyway", "relevance": "Ramp explicitly states 'traffic in the alleyway'"},
+      {"time": "08:37:00", "channel": "tower", "message": "Skywest 5313, looks like they're ready for you at Romeo now, cross runway 28L", "relevance": "Only after the tow traffic clears is SKW5313 released"}
+    ],
+    "ATC_Messages": [
+      {"time": "08:00:38", "channel": "tower", "message": "Skywest 5313, San Francisco turn right 28R, number 2, cleared to land."},
+      {"time": "08:27:44", "channel": "ramp_d", "message": "Hey, we have Skywest 5313. We've been holding way out west here on Romeo"},
+      {"time": "08:37:07", "channel": "ramp_d", "message": "I have traffic in the alleyway, I can't hold you on Alpha"}
+    ]
   },
   {
     "Date": "2026-01-25",
@@ -105,7 +159,7 @@
     "Flight_IATA": "UA2356",
     "Flight_ICAO": "UAL2356",
     "Origin": "KLAS",
-    "Aircraft_Type": "B739 ",
+    "Aircraft_Type": "B739",
     "Gate": "D10",
     "Scheduled_Arrival_UTC": "17:16",
     "Actual_Landing_UTC": "16:52",
@@ -120,9 +174,21 @@
     "ATC_Messages_Found": 263,
     "Evidence_Items": 3,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Taxi-in duration is below the 30-minute delay threshold, so no reportable taxi-in delay actually occ... | • Confirms aircraft was already taxiing toward gate shortly after landing, consistent with a normal ta...",
+    "Key_Evidence": "• Taxi-in duration is below the 30-minute delay threshold, so no reportable taxi-in delay actually occurred | • Confirms aircraft was already taxiing toward gate shortly after landing, consistent with a normal taxi sequence | • Shows continued progressive taxi instructions; nothing indicates an abnormal hold",
     "Hour_of_Day": 16,
-    "Flight_ID": "UAL2356-1769110533-fa-270p"
+    "Flight_ID": "UAL2356-1769110533-fa-270p",
+    "Prior_Flight_At_Gate": null,
+    "Prior_Flight_Departure_Status": null,
+    "Evidence_Details": [
+      {"time": "DATA", "channel": "flight_information", "message": "Landing Time 08:52, Gate-in Time 09:21 → taxi-in 29 minutes (<30-min delay threshold).", "relevance": "Taxi-in duration is below the 30-minute delay threshold"},
+      {"time": "08:53:21", "channel": "ground", "message": "Ground, good morning, 2356, we're clear of a 2-way left at Tango, Delta 10 … hold short of Bravo 4", "relevance": "Confirms aircraft was already taxiing toward gate shortly after landing"},
+      {"time": "09:17:24", "channel": "ground", "message": "United 2356, go to Quebec, Bravo, then Kilo, Alpha for the land.", "relevance": "Shows continued progressive taxi instructions"}
+    ],
+    "ATC_Messages": [
+      {"time": "08:48:21", "channel": "tower", "message": "United 2356, San Francisco Tower, runway 28R, cleared to land."},
+      {"time": "08:53:21", "channel": "ground", "message": "Ground, good morning, 2356, we're clear of a 2-way left at Tango, Delta 10"},
+      {"time": "09:17:24", "channel": "ground", "message": "United 2356, go to Quebec, Bravo, then Kilo, Alpha for the land."}
+    ]
   },
   {
     "Date": "2026-01-25",
@@ -130,7 +196,7 @@
     "Flight_IATA": "OO4661",
     "Flight_ICAO": "SKW4661",
     "Origin": "KGEG",
-    "Aircraft_Type": "E75L ",
+    "Aircraft_Type": "E75L",
     "Gate": "F8",
     "Scheduled_Arrival_UTC": "17:44",
     "Actual_Landing_UTC": "16:54",
@@ -145,9 +211,22 @@
     "ATC_Messages_Found": 397,
     "Evidence_Items": 4,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Meets pure schedule-variance threshold for Early Arrival; establishes that aircraft reached the fiel... | • Confirms aircraft is holding because gate F8 is still occupied by the scheduled departure. No indica...",
+    "Key_Evidence": "• Meets pure schedule-variance threshold for Early Arrival; establishes that aircraft reached the field far ahead of plan | • Confirms aircraft is holding because gate F8 is still occupied by the scheduled departure. No indication of abnormal problem | • Re-states that gate will free exactly when the scheduled departure leaves, reinforcing that delay is solely due to arriving early | • Previous flight SKW5736 scheduled OUT 09:25, actual pushback 09:20 (5 min early) - Gate-blocking flight was NOT late",
     "Hour_of_Day": 16,
-    "Flight_ID": "SKW4661-1769151155-airline-855p"
+    "Flight_ID": "SKW4661-1769151155-airline-855p",
+    "Prior_Flight_At_Gate": "SKW5736",
+    "Prior_Flight_Departure_Status": "5 min early (scheduled OUT 09:25, actual 09:20)",
+    "Evidence_Details": [
+      {"time": "08:54:38", "channel": "system", "message": "Landing time 08:54:38 vs scheduled 09:44:00 → schedule variance -49.4 min", "relevance": "Meets pure schedule-variance threshold for Early Arrival"},
+      {"time": "08:56:30", "channel": "ramp_d", "message": "Skywest 4661, Fox 8 is your gate, it is occupied, not due to open until 25 after", "relevance": "Confirms aircraft is holding because gate F8 is still occupied"},
+      {"time": "08:57:32", "channel": "ramp_d", "message": "Foxtrot 8, I'm showing it at 25, 25 after the hour, so about 30 minutes from now.", "relevance": "Gate will free exactly when the scheduled departure leaves"},
+      {"time": "gate_history", "channel": "data", "message": "Previous flight SKW5736 scheduled OUT 09:25, actual pushback 09:20 (5 min early).", "relevance": "Gate-blocking flight was NOT late, eliminating Late Departure as root cause"}
+    ],
+    "ATC_Messages": [
+      {"time": "08:50:30", "channel": "tower", "message": "Skywest 4661, San Francisco Tower, runway 28R, cleared to land."},
+      {"time": "08:56:30", "channel": "ramp_d", "message": "Skywest 4661, Fox 8 is your gate, it is occupied, not due to open until 25 after"},
+      {"time": "08:57:32", "channel": "ramp_d", "message": "Foxtrot 8, I'm showing it at 25, 25 after the hour"}
+    ]
   },
   {
     "Date": "2026-01-25",
@@ -155,7 +234,7 @@
     "Flight_IATA": "OO3483",
     "Flight_ICAO": "SKW3483",
     "Origin": "KPDX",
-    "Aircraft_Type": "E75L ",
+    "Aircraft_Type": "E75L",
     "Gate": "4",
     "Scheduled_Arrival_UTC": "16:58",
     "Actual_Landing_UTC": "17:32",
@@ -170,9 +249,20 @@
     "ATC_Messages_Found": 532,
     "Evidence_Items": 3,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Schedule variance alone exceeds the ±15-minute threshold, automatically qualifying as a Late Arrival... | • Confirms touchdown/exit time that aligns with the late-arrival timestamp.",
+    "Key_Evidence": "• Schedule variance alone exceeds the ±15-minute threshold, automatically qualifying as a Late Arrival when no higher-priority operational root cause is evident | • Confirms touchdown/exit time that aligns with the late-arrival timestamp | • No references to gate 4 being occupied by a late departing aircraft, no tow-off activity, no FAA gate-hold, no mechanical or staffing problems",
     "Hour_of_Day": 17,
-    "Flight_ID": "SKW3483-1769152374-airline-900p"
+    "Flight_ID": "SKW3483-1769152374-airline-900p",
+    "Prior_Flight_At_Gate": null,
+    "Prior_Flight_Departure_Status": null,
+    "Evidence_Details": [
+      {"time": "09:32:19", "channel": "system", "message": "Actual landing time 09:32:19 vs. scheduled arrival 08:58:00 (-34.3-min variance)", "relevance": "Schedule variance alone exceeds the ±15-minute threshold"},
+      {"time": "09:32:21", "channel": "tower", "message": "Airbus 3483, turn left at Echo and contact ground on point 8.", "relevance": "Confirms touchdown/exit time that aligns with the late-arrival timestamp"},
+      {"time": "Entire transcript", "channel": "ground / tower", "message": "No references to gate 4 being occupied by a late departing aircraft, no tow-off activity", "relevance": "Absence of other operational-delay evidence places primary cause on schedule variance"}
+    ],
+    "ATC_Messages": [
+      {"time": "09:27:30", "channel": "tower", "message": "838 heavy, turn left at Tango and contact ground point 8"},
+      {"time": "09:28:07", "channel": "ground", "message": "Skywest 5736, 7 Alpha with Foxtrot."}
+    ]
   },
   {
     "Date": "2026-01-26",
@@ -180,7 +270,7 @@
     "Flight_IATA": "WN2656",
     "Flight_ICAO": "SWA2656",
     "Origin": "KLAS",
-    "Aircraft_Type": "B38M ",
+    "Aircraft_Type": "B38M",
     "Gate": "D4",
     "Scheduled_Arrival_UTC": "03:45",
     "Actual_Landing_UTC": "03:16",
@@ -195,9 +285,21 @@
     "ATC_Messages_Found": 205,
     "Evidence_Items": 4,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Start of taxi-in clock | • End of taxi-in clock",
+    "Key_Evidence": "• Start of taxi-in clock | • End of taxi-in clock | • Taxi-in time = 28 minutes (<30-minute delay threshold) | • Indicates normal taxi flow with no prolonged hold",
     "Hour_of_Day": 3,
-    "Flight_ID": "SWA2656-1769157159-airline-610p"
+    "Flight_ID": "SWA2656-1769157159-airline-610p",
+    "Prior_Flight_At_Gate": null,
+    "Prior_Flight_Departure_Status": null,
+    "Evidence_Details": [
+      {"time": "19:16:59", "channel": "internal", "message": "Landing time recorded for SWA2656", "relevance": "Start of taxi-in clock"},
+      {"time": "19:45:00", "channel": "internal", "message": "Gate-in time recorded for SWA2656", "relevance": "End of taxi-in clock"},
+      {"time": "internal-calc", "channel": "calculation", "message": "Taxi-in time = 28 minutes (<30-minute delay threshold)", "relevance": "Shows flight did not actually experience a qualifying taxi-in delay"},
+      {"time": "19:17:36", "channel": "ground", "message": "…Delta 2656… receives taxi instructions shortly after landing", "relevance": "Indicates normal taxi flow with no prolonged hold"}
+    ],
+    "ATC_Messages": [
+      {"time": "19:13:21", "channel": "tower", "message": "Tower 2656, runway 28R, cleared to land."},
+      {"time": "19:17:36", "channel": "ground", "message": "Delta 2656… receives taxi instructions shortly after landing"}
+    ]
   },
   {
     "Date": "2026-01-26",
@@ -205,7 +307,7 @@
     "Flight_IATA": "UA705",
     "Flight_ICAO": "UAL705",
     "Origin": "MMPR",
-    "Aircraft_Type": "B738 ",
+    "Aircraft_Type": "B738",
     "Gate": "G12",
     "Scheduled_Arrival_UTC": "03:47",
     "Actual_Landing_UTC": "03:25",
@@ -220,9 +322,21 @@
     "ATC_Messages_Found": 261,
     "Evidence_Items": 4,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Establishes taxi-in clock start time | • Shows a brief gate-occupancy hold but no evidence of a protracted root-cause issue",
+    "Key_Evidence": "• Establishes taxi-in clock start time | • Shows a brief gate-occupancy hold but no evidence of a protracted root-cause issue | • Indicates release from the short hold and clearance toward the gate | • Taxi-in completed 28 minutes after landing – below the 30-minute delay threshold",
     "Hour_of_Day": 3,
-    "Flight_ID": "UAL705-1769126890-fa-1172p"
+    "Flight_ID": "UAL705-1769126890-fa-1172p",
+    "Prior_Flight_At_Gate": "Unknown",
+    "Prior_Flight_Departure_Status": "Brief occupancy, ~15 minutes",
+    "Evidence_Details": [
+      {"time": "19:25:00", "channel": "Flight Info", "message": "Actual landing time recorded: 19:25 PT", "relevance": "Establishes taxi-in clock start time"},
+      {"time": "19:27:17", "channel": "ramp_g", "message": "United 705, ramp, Golf 12, lose your gate, it's still occupied, possibly 15 minutes or less, I want to stage you in holding spot 11-2", "relevance": "Shows a brief gate-occupancy hold"},
+      {"time": "19:50:44", "channel": "ramp_g", "message": "United 705, continue to Golf 12, when able, company will push you to leave the room", "relevance": "Indicates release from the short hold and clearance toward the gate"},
+      {"time": "19:53:00", "channel": "Flight Info", "message": "On-block (gate-in) time recorded: 19:53 PT", "relevance": "Taxi-in completed 28 minutes after landing – below the 30-minute delay threshold"}
+    ],
+    "ATC_Messages": [
+      {"time": "19:27:17", "channel": "ramp_g", "message": "United 705, ramp, Golf 12, lose your gate, it's still occupied, possibly 15 minutes or less"},
+      {"time": "19:50:44", "channel": "ramp_g", "message": "United 705, continue to Golf 12, when able"}
+    ]
   },
   {
     "Date": "2026-01-26",
@@ -230,7 +344,7 @@
     "Flight_IATA": "WN1391",
     "Flight_ICAO": "SWA1391",
     "Origin": "KLAX",
-    "Aircraft_Type": "B38M ",
+    "Aircraft_Type": "B38M",
     "Gate": "D1",
     "Scheduled_Arrival_UTC": "04:15",
     "Actual_Landing_UTC": "04:55",
@@ -245,9 +359,19 @@
     "ATC_Messages_Found": 1000,
     "Evidence_Items": 2,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Schedule variance exceeds +15-minute threshold, confirming a Late Arrival classification when no hig... | • Absence of any holding, gate-occupancy, FAA gate-hold, mechanical, tow, or ramp-crew issues connecte...",
+    "Key_Evidence": "• Schedule variance exceeds +15-minute threshold, confirming a Late Arrival classification when no higher-priority root cause is evident | • Absence of any holding, gate-occupancy, FAA gate-hold, mechanical, tow, or ramp-crew issues connected to SWA1391 indicates no specific operational root cause",
     "Hour_of_Day": 4,
-    "Flight_ID": "SWA1391-1769156909-airline-966p"
+    "Flight_ID": "SWA1391-1769156909-airline-966p",
+    "Prior_Flight_At_Gate": null,
+    "Prior_Flight_Departure_Status": null,
+    "Evidence_Details": [
+      {"time": "N/A", "channel": "flight_info", "message": "Schedule variance for SWA1391 is +40.7 minutes (landed 20:55:43 vs. scheduled 20:15:00)", "relevance": "Schedule variance exceeds +15-minute threshold, confirming a Late Arrival classification"},
+      {"time": "22:52:20-04:50:50", "channel": "tower/ground", "message": "Extensive ATC transcript provided shows no callsign 'Southwest 1391' and no references to Gate D1", "relevance": "Absence of any holding, gate-occupancy issues indicates no specific operational root cause"}
+    ],
+    "ATC_Messages": [
+      {"time": "22:52:20", "channel": "ground", "message": "Ground, United 173, ready to taxi."},
+      {"time": "22:52:22", "channel": "tower", "message": "American 3076, San Francisco Tower, good evening, runway 28R, cleared to land."}
+    ]
   },
   {
     "Date": "2026-01-26",
@@ -255,7 +379,7 @@
     "Flight_IATA": "UA1112",
     "Flight_ICAO": "UAL1112",
     "Origin": "PHLI",
-    "Aircraft_Type": "B38M ",
+    "Aircraft_Type": "B38M",
     "Gate": "E3",
     "Scheduled_Arrival_UTC": "05:31",
     "Actual_Landing_UTC": "05:08",
@@ -270,9 +394,23 @@
     "ATC_Messages_Found": 307,
     "Evidence_Items": 5,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Meets ≥15-minute early-arrival threshold; establishes schedule-variance condition. | • Only two minutes after touchdown the crew is already on ground frequency, indicating no ATC-imposed ...",
+    "Key_Evidence": "• Meets ≥15-minute early-arrival threshold; establishes schedule-variance condition | • Only two minutes after touchdown the crew is already on ground frequency, indicating no ATC-imposed hold | • Ground clears UAL1112 toward the ramp almost immediately | • Shows aircraft still maneuvering inside the ramp long after landing | • Previous flight SKW5825 pushed at 21:05, only 7 min late (<15 min threshold)",
     "Hour_of_Day": 5,
-    "Flight_ID": "UAL1112-1769150467-airline-1368p"
+    "Flight_ID": "UAL1112-1769150467-airline-1368p",
+    "Prior_Flight_At_Gate": "SKW5825",
+    "Prior_Flight_Departure_Status": "7 min late (pushed at 21:05)",
+    "Evidence_Details": [
+      {"time": "21:08:55", "channel": "flight_data", "message": "Actual landing time 21:08:55 vs scheduled arrival 21:31:00 (-22.1 min early)", "relevance": "Meets ≥15-minute early-arrival threshold"},
+      {"time": "21:09:05", "channel": "ground", "message": "Ground, thank you, we are back with you ready.", "relevance": "Only two minutes after touchdown the crew is already on ground frequency"},
+      {"time": "21:11:04", "channel": "ground", "message": "United 1112 … Bravo to the ramp, thanks, United 1112.", "relevance": "Ground clears UAL1112 toward the ramp almost immediately"},
+      {"time": "21:35:45", "channel": "ground", "message": "You got spot 10? … 1112, where are you going? We're going to Echo 3.", "relevance": "Shows aircraft still maneuvering inside the ramp long after landing"},
+      {"time": "gate_history", "channel": "gate_data", "message": "Previous flight SKW5825 pushed at 21:05, only 7 min late (<15 min threshold)", "relevance": "Rules out Late Departure classification"}
+    ],
+    "ATC_Messages": [
+      {"time": "21:04:48", "channel": "tower", "message": "San Francisco Tower, United 1112, runway 23L, cleared to land."},
+      {"time": "21:09:05", "channel": "ground", "message": "Ground, thank you, we are back with you ready."},
+      {"time": "21:11:04", "channel": "ground", "message": "United 1112 … Bravo to the ramp, thanks, United 1112."}
+    ]
   },
   {
     "Date": "2026-01-26",
@@ -280,7 +418,7 @@
     "Flight_IATA": "OO6006",
     "Flight_ICAO": "SKW6006",
     "Origin": "KTUS",
-    "Aircraft_Type": "E75L ",
+    "Aircraft_Type": "E75L",
     "Gate": "F5",
     "Scheduled_Arrival_UTC": "05:45",
     "Actual_Landing_UTC": "05:12",
@@ -295,9 +433,21 @@
     "ATC_Messages_Found": 293,
     "Evidence_Items": 4,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Confirms touchdown sequence well before the published STA of 21:45, establishing the −32-minute earl... | • Eliminates Late-Departure or gate-blocking as a root cause—gate was physically clear when SKW6006 ar...",
+    "Key_Evidence": "• Confirms touchdown sequence well before the published STA of 21:45, establishing the −32-minute early-arrival condition | • Previous flight at gate F5 (SKW5465) pushed at 21:08, seven minutes BEFORE SKW6006 landed—gate was physically clear | • Shows controllers juggling gates because SKW6006 reached the ramp much earlier than planned | • Schedule variance = −32.1 min (≥ 15 min early); taxi-in time = 30.1 min",
     "Hour_of_Day": 5,
-    "Flight_ID": "SKW6006-1769148408-airline-291p"
+    "Flight_ID": "SKW6006-1769148408-airline-291p",
+    "Prior_Flight_At_Gate": "SKW5465",
+    "Prior_Flight_Departure_Status": "7 min early (pushed at 21:08)",
+    "Evidence_Details": [
+      {"time": "21:09:46", "channel": "tower", "message": "Skyway 6006, San Francisco Tower, wind 050 at 5, runway 28L, cleared to land.", "relevance": "Confirms touchdown sequence well before the published STA of 21:45"},
+      {"time": "Gate-history", "channel": "data", "message": "Previous flight at gate F5 (SKW5465) pushed at 21:08, seven minutes BEFORE SKW6006 landed", "relevance": "Eliminates Late-Departure or gate-blocking as a root cause"},
+      {"time": "21:14:34", "channel": "ground", "message": "Skyway 6006, yeah, looks like that flight is delayed, they want us to go to the G-gate.", "relevance": "Shows controllers juggling gates because SKW6006 reached the ramp much earlier than planned"},
+      {"time": "Calculated", "channel": "data", "message": "Schedule variance = −32.1 min (≥ 15 min early); taxi-in time = 30.1 min.", "relevance": "Meets 'Early Arrival' rule"}
+    ],
+    "ATC_Messages": [
+      {"time": "21:09:46", "channel": "tower", "message": "Skyway 6006, San Francisco Tower, wind 050 at 5, runway 28L, cleared to land."},
+      {"time": "21:14:34", "channel": "ground", "message": "Skyway 6006, yeah, looks like that flight is delayed, they want us to go to the G-gate."}
+    ]
   },
   {
     "Date": "2026-01-26",
@@ -305,7 +455,7 @@
     "Flight_IATA": "UA2615",
     "Flight_ICAO": "UAL2615",
     "Origin": "KPDX",
-    "Aircraft_Type": "A319 ",
+    "Aircraft_Type": "A319",
     "Gate": "E10",
     "Scheduled_Arrival_UTC": "05:49",
     "Actual_Landing_UTC": "05:23",
@@ -320,9 +470,20 @@
     "ATC_Messages_Found": 267,
     "Evidence_Items": 3,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Meets schedule-variance threshold (≥ 15 min early) required for Early Arrival classification. | • Shows aircraft was held because gate E10 was still occupied by the scheduled outbound, a typical sym...",
+    "Key_Evidence": "• Meets schedule-variance threshold (≥ 15 min early) required for Early Arrival classification | • Shows aircraft was held because gate E10 was still occupied by the scheduled outbound, a typical symptom when an aircraft arrives well ahead of its planned time | • Previous flight UAL2646 scheduled OUT 21:30, actual pushback 21:42 (12 min late) - NOT ≥ 15 min late",
     "Hour_of_Day": 5,
-    "Flight_ID": "UAL2615-1769152123-airline-946p"
+    "Flight_ID": "UAL2615-1769152123-airline-946p",
+    "Prior_Flight_At_Gate": "UAL2646",
+    "Prior_Flight_Departure_Status": "12 min late (scheduled OUT 21:30, actual 21:42)",
+    "Evidence_Details": [
+      {"time": "21:23:00", "channel": "flight_info", "message": "Landing time 21:23 vs. scheduled 21:49 (-26 min early)", "relevance": "Meets schedule-variance threshold (≥ 15 min early) required for Early Arrival classification"},
+      {"time": "21:36:12", "channel": "ground", "message": "United 2615, our gate, Echo 10, is still occupied, you'll have to hold…", "relevance": "Shows aircraft was held because gate E10 was still occupied by the scheduled outbound"},
+      {"time": "gate_history", "channel": "gate_history", "message": "Previous flight UAL2646 scheduled OUT 21:30, actual pushback 21:42 (12 min late)", "relevance": "Previous flight was NOT ≥ 15 min late; gate occupancy primarily driven by UAL2615's early arrival"}
+    ],
+    "ATC_Messages": [
+      {"time": "21:18:21", "channel": "tower", "message": "Skywest 6414, Tower, cleared to land, runway 28L."},
+      {"time": "21:36:12", "channel": "ground", "message": "United 2615, our gate, Echo 10, is still occupied, you'll have to hold…"}
+    ]
   },
   {
     "Date": "2026-01-26",
@@ -330,7 +491,7 @@
     "Flight_IATA": "DL1091",
     "Flight_ICAO": "DAL1091",
     "Origin": "KSLC",
-    "Aircraft_Type": "B738 ",
+    "Aircraft_Type": "B738",
     "Gate": "B5",
     "Scheduled_Arrival_UTC": "07:56",
     "Actual_Landing_UTC": "07:54",
@@ -345,8 +506,20 @@
     "ATC_Messages_Found": 261,
     "Evidence_Items": 3,
     "Analysis_Quality": "High",
-    "Key_Evidence": "• Shows DAL1091 was already in the ramp area nearly 26 min before block-in, so the bulk of the delay o... | • Controller offering an alternate stand to another aircraft indicates tight spacing / lack of room in...",
+    "Key_Evidence": "• Shows DAL1091 was already in the ramp area nearly 26 min before block-in, so the bulk of the delay occurred while near the alleyway leading to the gate | • Controller offering an alternate stand to another aircraft indicates tight spacing / lack of room in the same Bravo alley | • Conversation about waiting for a company aircraft to move suggests holding in the alleyway until traffic clears—consistent with taxi-in congestion",
     "Hour_of_Day": 7,
-    "Flight_ID": "DAL1091-1769152999-airline-1163p"
+    "Flight_ID": "DAL1091-1769152999-airline-1163p",
+    "Prior_Flight_At_Gate": null,
+    "Prior_Flight_Departure_Status": "Alleyway congestion, not gate-specific",
+    "Evidence_Details": [
+      {"time": "23:58:42", "channel": "ramp_a", "message": "Delta 1091, ramp enters, spot 1, Mike 5 to Bravo 5.", "relevance": "Shows DAL1091 was already in the ramp area nearly 26 min before block-in"},
+      {"time": "23:59:03", "channel": "tower", "message": "805, if you don't have room there, you can use Bravo 2.", "relevance": "Controller offering an alternate stand indicates tight spacing in the same Bravo alley"},
+      {"time": "23:59:22", "channel": "tower", "message": "…we'll stick with this hammer out once your company moves…", "relevance": "Conversation about waiting for a company aircraft to move suggests alleyway congestion"}
+    ],
+    "ATC_Messages": [
+      {"time": "23:49:46", "channel": "tower", "message": "Delta 495, take the high speed, cross runway 28L, ground point eight."},
+      {"time": "23:58:42", "channel": "ramp_a", "message": "Delta 1091, ramp enters, spot 1, Mike 5 to Bravo 5."},
+      {"time": "23:59:03", "channel": "tower", "message": "805, if you don't have room there, you can use Bravo 2."}
+    ]
   }
 ]
