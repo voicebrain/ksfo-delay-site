@@ -107,7 +107,6 @@ th {
   background: white;
   z-index: 1;
   border-bottom: 1px solid #e8e8e8;
-  white-space: nowrap;
 }
 .badge {
   display: inline-flex;
