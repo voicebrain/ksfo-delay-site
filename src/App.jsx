@@ -454,7 +454,7 @@ export default function App() {
                         </div>
 
                         <div className="notes-section">
-                          <div className="section-title">Notes / Feedback</div>
+                          <div className="section-title">AIOC Notes/Feedback</div>
                           <textarea
                             className="notes-textarea"
                             placeholder="Enter analyst notes or feedback..."
