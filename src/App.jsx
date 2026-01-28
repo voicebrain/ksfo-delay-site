@@ -60,6 +60,23 @@ export default function App() {
   // Feedback tracking - stores user-selected classifications
   const [labelFeedback, setLabelFeedback] = useState(() => ({}));
 
+  // Notes tracking - stores analyst notes per flight
+  const [notes, setNotes] = useState(() => ({}));
+
+  // Handle notes change
+  function handleNotesChange(flightId, value) {
+    setNotes((prev) => ({ ...prev, [flightId]: value }));
+  }
+
+  // Handle notes submit
+  function handleNotesSubmit(flightId) {
+    const noteText = notes[flightId] || "";
+    if (!noteText.trim()) return;
+    // For now, just log to console - could be sent to an API
+    console.log(`Notes submitted for ${flightId}:`, noteText);
+    alert(`Notes saved for ${flightId}`);
+  }
+
   const airlineOptions = useMemo(() => {
     const set = new Set();
     for (const r of daily) {
@@ -301,14 +318,14 @@ export default function App() {
         <table>
           <thead>
             <tr>
-              <th>Flight</th>
+              <th><br />Flight</th>
               <th>Scheduled<br />arrival ({timezone})</th>
               <th>Actual<br />landing ({timezone})</th>
               <th>Gate<br />arrival ({timezone})</th>
               <th>Taxi<br />delay (min)</th>
               <th>Schedule<br />variance (min)</th>
               <th>Delay<br />classification</th>
-              <th>Details</th>
+              <th><br />Details</th>
             </tr>
           </thead>
           <tbody>
@@ -434,6 +451,19 @@ export default function App() {
                               No specific messages available.
                             </div>
                           )}
+                        </div>
+
+                        <div className="notes-section">
+                          <div className="section-title">AIOC Notes/Feedback</div>
+                          <textarea
+                            className="notes-textarea"
+                            placeholder="Enter analyst notes or feedback..."
+                            value={notes[id] || ""}
+                            onChange={(e) => handleNotesChange(id, e.target.value)}
+                          />
+                          <button className="notes-submit" onClick={() => handleNotesSubmit(id)}>
+                            Submit Notes
+                          </button>
                         </div>
                       </td>
                     </tr>
