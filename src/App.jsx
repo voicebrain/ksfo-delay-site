@@ -301,7 +301,6 @@ export default function App() {
         <table>
           <thead>
             <tr>
-              <th>Date</th>
               <th>Flight</th>
               <th>Scheduled arrival ({timezone})</th>
               <th>Actual landing ({timezone})</th>
@@ -322,7 +321,6 @@ export default function App() {
               return (
                 <>
                   <tr key={id}>
-                    <td>{fmt(r.Date)}</td>
                     <td>{getFlightNumber(r)}</td>
                     <td>{getScheduledArrival(r)}</td>
                     <td>{getActualLanding(r)}</td>
@@ -343,7 +341,7 @@ export default function App() {
                   </tr>
                   {isOpen && (
                     <tr key={id + "_details"}>
-                      <td className="details" colSpan={9}>
+                      <td className="details" colSpan={8}>
                         <div className="details-header">
                           <div className="subtle">
                             Flight ID: <span className="mono">{id}</span>
