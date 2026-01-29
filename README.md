@@ -15,3 +15,7 @@ npm run dev
 npm run build
 ```
 Deploy the `dist/` folder to any static host (Vercel/Netlify/GitHub Pages/S3, etc).
+
+
+
+OK.
