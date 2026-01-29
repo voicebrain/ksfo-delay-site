@@ -1,6 +1,25 @@
 import { useMemo, useState, useCallback } from "react";
-import daily from "./data/daily_delay_summary.json";
-import stats from "./data/statistics.json";
+
+// Import all KSFO_Taxi_Delays JSON files using Vite's glob import
+const dataFiles = import.meta.glob("./data/KSFO_Taxi_Delays_*.json", { eager: true });
+
+// Parse dates from filenames and sort descending (most recent first)
+const availableDates = Object.keys(dataFiles)
+  .map((path) => {
+    const match = path.match(/KSFO_Taxi_Delays_(\d{4}-\d{2}-\d{2})\.json$/);
+    return match ? match[1] : null;
+  })
+  .filter(Boolean)
+  .sort((a, b) => b.localeCompare(a));
+
+// Create a map of date -> data
+const dataByDate = {};
+for (const [path, module] of Object.entries(dataFiles)) {
+  const match = path.match(/KSFO_Taxi_Delays_(\d{4}-\d{2}-\d{2})\.json$/);
+  if (match) {
+    dataByDate[match[1]] = module.default;
+  }
+}
 
 function fmt(v) {
   if (v === null || v === undefined) return "";
@@ -8,7 +27,8 @@ function fmt(v) {
   return String(v);
 }
 
-function kpiValue(metricName) {
+function kpiValue(stats, metricName) {
+  if (!stats) return "";
   const row = stats.find((r) => String(r.Metric).toLowerCase() === metricName.toLowerCase());
   return row ? row.Value : "";
 }
@@ -48,6 +68,14 @@ const CLASSIFICATION_OPTIONS = [
 ];
 
 export default function App() {
+  // Date selection - default to most recent
+  const [selectedDate, setSelectedDate] = useState(availableDates[0] || "");
+
+  // Get current data based on selected date
+  const currentData = dataByDate[selectedDate] || { statistics: [], flights: [] };
+  const daily = currentData.flights || [];
+  const stats = currentData.statistics || [];
+
   const [q, setQ] = useState("");
   const [airline, setAirline] = useState("All");
   const [classification, setClassification] = useState("All");
@@ -114,11 +142,11 @@ export default function App() {
     });
   }, [q, airline, classification]);
 
-  const avgTaxiDelay = kpiValue("Average Taxi Delay (min)");
-  const maxTaxiDelay = kpiValue("Max Taxi Delay (min)");
-  const totalDelayed = kpiValue("Total Delayed Flights");
-  const analysisDate = kpiValue("Analysis Date");
-  const coverage = kpiValue("Flights with Schedule Data");
+  const avgTaxiDelay = kpiValue(stats, "Average Taxi Delay (min)");
+  const maxTaxiDelay = kpiValue(stats, "Max Taxi Delay (min)");
+  const totalDelayed = kpiValue(stats, "Total Delayed Flights");
+  const analysisDate = kpiValue(stats, "Analysis Date");
+  const coverage = kpiValue(stats, "Flights with Schedule Data");
 
   function toggleRow(id) {
     setExpanded((prev) => {
@@ -252,7 +280,7 @@ export default function App() {
     <div className="container">
       <div>
         <div className="h1">KSFO Taxi Delays</div>
-        <div className="subtle">Public summary for {fmt(analysisDate)} · Data rows: {filtered.length} / {daily.length}</div>
+        <div className="subtle">Public summary for {selectedDate} · Data rows: {filtered.length} / {daily.length}</div>
       </div>
 
       <div className="grid">
@@ -275,6 +303,11 @@ export default function App() {
       </div>
 
       <div className="toolbar">
+        <select className="select date-select" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)}>
+          {availableDates.map((date) => (
+            <option key={date} value={date}>{date}</option>
+          ))}
+        </select>
         <input
           className="input"
           style={{ minWidth: 260 }}

@@ -1,0 +1,1642 @@
+{
+  "statistics": [
+    {
+      "Metric": "Analysis Date",
+      "Value": "2026-01-22"
+    },
+    {
+      "Metric": "Total Delayed Flights",
+      "Value": 12
+    },
+    {
+      "Metric": "Average Taxi Delay (min)",
+      "Value": "39.8"
+    },
+    {
+      "Metric": "Max Taxi Delay (min)",
+      "Value": "54.8"
+    },
+    {
+      "Metric": "Flights with Schedule Data",
+      "Value": "12/12 (100.0%)"
+    },
+    {
+      "Metric": "Early Arrivals",
+      "Value": "12 (100.0%)"
+    },
+    {
+      "Metric": "On-Time Arrivals",
+      "Value": "0 (0.0%)"
+    },
+    {
+      "Metric": "Late Arrivals",
+      "Value": "0 (0.0%)"
+    },
+    {
+      "Metric": "Classification Coverage",
+      "Value": "12/12 (100.0%)"
+    },
+    {
+      "Metric": "Average Confidence",
+      "Value": "83.1%"
+    },
+    {
+      "Metric": "High Quality Analyses",
+      "Value": "12/12 (100.0%)"
+    },
+    {
+      "Metric": "Most Common Delay Type",
+      "Value": "Early Arrival"
+    },
+    {
+      "Metric": "Avg ATC Messages per Flight",
+      "Value": "339"
+    }
+  ],
+  "flights": [
+    {
+      "Date": "2026-01-22",
+      "Flight": "BR629",
+      "Flight_IATA": "BR629",
+      "Flight_ICAO": "EVA629",
+      "Origin": "KLAX",
+      "Aircraft_Type": "B77L ",
+      "Gate": "Unknown",
+      "Scheduled_Arrival_UTC": "11:25",
+      "Actual_Landing_UTC": "10:48",
+      "Gate_Arrival_UTC": "11:25",
+      "Actual_Landing_PT": "02:48",
+      "Gate_Arrival_PT": "03:25",
+      "Taxi_Delay_Minutes": 36.1,
+      "Schedule_Variance_Minutes": -36.1,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Early Arrival",
+      "VB_Confidence_Percent": 62,
+      "ATC_Messages_Found": 82,
+      "Evidence_Items": 3,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Meets the rule-based threshold for Early Arrival; no stronger root-cause evidence overrides it. | • Shows EVA629 on final approach; nothing in subsequent ATC traffic indicates gate problems, mechanical issues, FAA gate holds, or late departure of a blocking aircraft. | • Absence of higher-priority specific causes means the schedule variance remains the primary explanation.",
+      "Hour_of_Day": 10,
+      "Flight_ID": "EVA629-1768897373-airline-853p",
+      "Prior_Flight_At_Gate": null,
+      "Prior_Flight_Departure_Status": null,
+      "Evidence_Details": [
+        {
+          "time": "02:48:52",
+          "channel": "system",
+          "message": "Landing Time 02:48:52 vs. Scheduled Time 03:25:00 → Schedule variance –36 min (≥ 15 min early)",
+          "relevance": "Meets the rule-based threshold for Early Arrival; no stronger root-cause evidence overrides it."
+        },
+        {
+          "time": "02:46:08",
+          "channel": "tower",
+          "message": "And Tower, EVA 629er … expect a right turn at Romeo.",
+          "relevance": "Shows EVA629 on final approach; nothing in subsequent ATC traffic indicates gate problems, mechanical issues, FAA gate holds, or late departure of a blocking aircraft."
+        },
+        {
+          "time": "Entire transcript",
+          "channel": "multiple",
+          "message": "No mentions of gate hold, mechanical problem, ramp-crew shortage, tow delay, or late pushback for previous aircraft at EVA629’s gate.",
+          "relevance": "Absence of higher-priority specific causes means the schedule variance remains the primary explanation."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "18:44:34",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Oj_I_KwyXjLv0Wh3C5Y",
+          "message": "Ground, Korean Air 214 heavy, request taxi with Romeo and request using runway.",
+          "asr_confidence": 0.8
+        },
+        {
+          "time": "18:44:41",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Oj_Ib1wVJM_EW9jeZYj",
+          "message": "Korean Air 214 heavy, runway 28R, taxi via Charlie, cross 1L, cross 1R.",
+          "asr_confidence": 0.75
+        },
+        {
+          "time": "18:44:42",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Oj_IbBwx45BkIpPyzyc",
+          "message": "Cleared to land, runway 28R, taxi to Charlie, squawk, 1L, 1L, good night.",
+          "asr_confidence": 0.69
+        },
+        {
+          "time": "18:44:52",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Oj_IdaP0pNfoVp5oEUL",
+          "message": "Departure, runway 10R, via Charlie, cross runway 1L and cross runway 1R, Korean Air 213.",
+          "asr_confidence": 0.77
+        },
+        {
+          "time": "18:45:32",
+          "channel": "ramp_d",
+          "channel_id": "-OLdo9JSJfTt9_rVD21u",
+          "talk_id": "-Oj_InQrR2RqiPVcDK70",
+          "message": "Roger.",
+          "asr_confidence": 0.76
+        },
+        {
+          "time": "18:45:32",
+          "channel": "ramp_a",
+          "channel_id": "-OLdnpPXnVV-Exj9ocnl",
+          "talk_id": "-Oj_InUFvIjH5xbDOB28",
+          "message": "Roger.",
+          "asr_confidence": 0.58
+        },
+        {
+          "time": "18:46:06",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Oj_IvqzpaqOrpmfS35z",
+          "message": "16L heavy, expect a right turn at Romeo.",
+          "asr_confidence": 0.71
+        },
+        {
+          "time": "18:46:08",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Oj_IwK-Jy2Lz_nQdTy0",
+          "message": "And Tower, EVA 629er, just verify, do you want back here on the left or right after landing? EVA 629er, heavy, expect a right turn at Romeo. Right turn at Romeo, EVA 629er.",
+          "asr_confidence": 0.78
+        },
+        {
+          "time": "18:47:21",
+          "channel": "ramp_d",
+          "channel_id": "-OLdo9JSJfTt9_rVD21u",
+          "talk_id": "-Oj_JD7zMVz2TJUZWQlj",
+          "message": "Roger.",
+          "asr_confidence": 0.65
+        },
+        {
+          "time": "18:47:23",
+          "channel": "ramp_a",
+          "channel_id": "-OLdnpPXnVV-Exj9ocnl",
+          "talk_id": "-Oj_JDdCB9c8WykAzmq_",
+          "message": "Roger.",
+          "asr_confidence": 0.7
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-22",
+      "Flight": "OO5617",
+      "Flight_IATA": "OO5617",
+      "Flight_ICAO": "SKW5617",
+      "Origin": "KPSP",
+      "Aircraft_Type": "E75L ",
+      "Gate": "E12",
+      "Scheduled_Arrival_UTC": "16:40",
+      "Actual_Landing_UTC": "15:54",
+      "Gate_Arrival_UTC": "16:49",
+      "Actual_Landing_PT": "07:54",
+      "Gate_Arrival_PT": "08:49",
+      "Taxi_Delay_Minutes": 54.8,
+      "Schedule_Variance_Minutes": -45.8,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Early Arrival",
+      "VB_Confidence_Percent": 83,
+      "ATC_Messages_Found": 498,
+      "Evidence_Items": 3,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Confirms actual touchdown time. Combined with the scheduled arrival of 08:40 this gives a –46-minute schedule variance, meeting the ≥15-minute early-arrival threshold. | • Shows the blocking aircraft departed essentially on time (not ≥15 min late). Therefore the gate was legitimately occupied when SKW5617 landed, eliminating “Late Departure” and pointing to SKW5617’s large earliness as the root cause. | • Long re-route away from the concourse immediately after landing indicates the aircraft had to hold on the surface until its gate opened, consistent with arriving far ahead of the planned gate availability.",
+      "Hour_of_Day": 15,
+      "Flight_ID": "SKW5617-1768893229-airline-1044p",
+      "Prior_Flight_At_Gate": "UAL2018",
+      "Prior_Flight_Departure_Status": "476 min early (pushed 08:28)",
+      "Evidence_Details": [
+        {
+          "time": "07:54:10",
+          "channel": "tower",
+          "message": "Landing clearance for Skywest 5617",
+          "relevance": "Confirms actual touchdown time. Combined with the scheduled arrival of 08:40 this gives a –46-minute schedule variance, meeting the ≥15-minute early-arrival threshold."
+        },
+        {
+          "time": "GateHistory-08:27",
+          "channel": "gate_history",
+          "message": "Previous flight at E12 (UAL2018) pushed at 08:27, only 2 min after its 08:25 schedule",
+          "relevance": "Shows the blocking aircraft departed essentially on time (not ≥15 min late). Therefore the gate was legitimately occupied when SKW5617 landed, eliminating “Late Departure” and pointing to SKW5617’s large earliness as the root cause."
+        },
+        {
+          "time": "07:54:23",
+          "channel": "ground",
+          "message": "…Skywest 6617… taxi via Bravo all the way around to Bravo 4 and contact back on 19-2…",
+          "relevance": "Long re-route away from the concourse immediately after landing indicates the aircraft had to hold on the surface until its gate opened, consistent with arriving far ahead of the planned gate availability."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "23:49:10",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaOI4Uy-uDM-lvdbJ_",
+          "message": "Tower, Cessna 2617, runway 28L.",
+          "asr_confidence": 0.77
+        },
+        {
+          "time": "23:49:14",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaOJ6Gn-JvjUSBMArz",
+          "message": "Thank you.",
+          "asr_confidence": 0.52
+        },
+        {
+          "time": "23:49:26",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaOM9eaFKoWVdenI4s",
+          "message": "Ground, Tango 592, do you want us to stick with you, and also do you want us to hold short up here anywhere, waiting? Tango 592, no, just make sure you make the left turn at Mike 1, that way you can use the intersection if anybody needs one left behind you. Okay, we'll use Mike 1 and put you in tower, Tango 592. Good to go.",
+          "asr_confidence": 0.79
+        },
+        {
+          "time": "23:49:27",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaOMMvDLtIaLmvlU0M",
+          "message": "5617, runway cleared to land, 5617, tower, continue, cross for turbulence, you're following the heavy dreamliner. Continue, 5617.",
+          "asr_confidence": 0.66
+        },
+        {
+          "time": "23:49:40",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaOPYg0uESOY-aDcbf",
+          "message": "Alaska Air 1410 at Bravo 8, thank you for the report. Ground's on point 8.",
+          "asr_confidence": 0.62
+        },
+        {
+          "time": "23:49:55",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaOTBQJLXUujhu64Wr",
+          "message": "Hotel Four Two Ten, Bravo way with X-ray, 4-2-10, 10-10, taxi to gate, cleared to land, 4-2-10.",
+          "asr_confidence": 0.58
+        },
+        {
+          "time": "23:50:04",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaOVRfUxL42IsNE9De",
+          "message": "United 61 Heavy, wind calm, runway 28L, cleared to land.",
+          "asr_confidence": 0.7
+        },
+        {
+          "time": "23:50:07",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaOW3LGmsUw-ZI2cyZ",
+          "message": "San Francisco ground, hold on, let me get a flight back.",
+          "asr_confidence": 0.71
+        },
+        {
+          "time": "23:50:13",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaOXY_IIJ_sfQzhQ1p",
+          "message": "Select 1410, have a good trip, northbound to Alpha, now, see ya.",
+          "asr_confidence": 0.62
+        },
+        {
+          "time": "23:50:22",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaOZi7Hamfmb7oRGcQ",
+          "message": "NORCAL to Alpha, 1147, thanks. You got it, 10-3-5 to New York, see you last, get behind me, left, put that onto Alpha, 10-6-2, Yankee, you're good to go.",
+          "asr_confidence": 0.68
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-22",
+      "Flight": "OO4697",
+      "Flight_IATA": "OO4697",
+      "Flight_ICAO": "SKW4697",
+      "Origin": "KABQ",
+      "Aircraft_Type": "E75L ",
+      "Gate": "F8",
+      "Scheduled_Arrival_UTC": "16:42",
+      "Actual_Landing_UTC": "15:57",
+      "Gate_Arrival_UTC": "16:46",
+      "Actual_Landing_PT": "07:57",
+      "Gate_Arrival_PT": "08:46",
+      "Taxi_Delay_Minutes": 49.0,
+      "Schedule_Variance_Minutes": -45.0,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Late Tow Off",
+      "VB_Confidence_Percent": 65,
+      "ATC_Messages_Found": 445,
+      "Evidence_Items": 4,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Confirms SKW4697 cannot proceed to its assigned gate (F8) because something is still occupying/being worked at the gate area. | • Controller directs another aircraft to hold for a ‘heavy under tow’.  This indicates an active tow operation in the Foxtrot alley that blocks gate access, consistent with a late tow-off of the blocking aircraft. | • Explicit SuperTug (tow vehicle) transmission immediately after the hold instructions; corroborates that tow operations are under way near the Foxtrot gates. | • Nearly 43 minutes after landing, SKW4697 finally checks back in for gate F8, showing the extended wait ended once the tow operation cleared.",
+      "Hour_of_Day": 15,
+      "Flight_ID": "SKW4697-1768890167-airline-982p",
+      "Prior_Flight_At_Gate": "SKW5740",
+      "Prior_Flight_Departure_Status": "491 min early (pushed 08:13)",
+      "Evidence_Details": [
+        {
+          "time": "07:58:45",
+          "channel": "ground",
+          "message": "San Francisco ground, Skywest 4697, clearing 28L at Delta, we're going to be waiting for Foxtrot 8.",
+          "relevance": "Confirms SKW4697 cannot proceed to its assigned gate (F8) because something is still occupying/being worked at the gate area."
+        },
+        {
+          "time": "08:02:42",
+          "channel": "ground",
+          "message": "…wait for a United heavy under tow and then taxi via left turn, Charley, Foxtrot, Echo…",
+          "relevance": "Controller directs another aircraft to hold for a ‘heavy under tow’.  This indicates an active tow operation in the Foxtrot alley that blocks gate access, consistent with a late tow-off of the blocking aircraft."
+        },
+        {
+          "time": "08:03:06",
+          "channel": "ground",
+          "message": "Ground, United SuperTug, Golf 2, spot 9, you're on the show for Pilot 40.",
+          "relevance": "Explicit SuperTug (tow vehicle) transmission immediately after the hold instructions; corroborates that tow operations are under way near the Foxtrot gates."
+        },
+        {
+          "time": "08:40:57",
+          "channel": "ground",
+          "message": "San Francisco ground, Skyway 4697 … Foxtrot 8.",
+          "relevance": "Nearly 43 minutes after landing, SKW4697 finally checks back in for gate F8, showing the extended wait ended once the tow operation cleared."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "23:52:01",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaOx2Ob4EZxyGN8dob",
+          "message": "Foxtrot to the ramp, United 260.",
+          "asr_confidence": 0.59
+        },
+        {
+          "time": "23:52:06",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaOy5hXwnVv1TMbmy6",
+          "message": "Rescue 91, at runway, cross 28L, 28R. Rescue 91, hold short of runway 28L.",
+          "asr_confidence": 0.84
+        },
+        {
+          "time": "23:52:11",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaOzKz7tALGPoq-F-1",
+          "message": "Hold short, 28L, roger, 9L.",
+          "asr_confidence": 0.82
+        },
+        {
+          "time": "23:52:26",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaP1wWZfVf2RfL2PKC",
+          "message": "Thank you.",
+          "asr_confidence": 0.67
+        },
+        {
+          "time": "23:52:36",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaP4QZ79naG7q6DXZE",
+          "message": "Alright, thank you, have a good day, have a good day, have a good day, have a good day, have a good day.",
+          "asr_confidence": 0.62
+        },
+        {
+          "time": "23:52:42",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaP5ppbNLkRh3GF1eM",
+          "message": "Thank you.",
+          "asr_confidence": 0.49
+        },
+        {
+          "time": "23:53:14",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaPDfQK-kC0A-0_6eo",
+          "message": "Tower, United 335, on final, 3-2-8 left.",
+          "asr_confidence": 0.68
+        },
+        {
+          "time": "23:53:28",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaPH9aDW5DaGPoPveA",
+          "message": "Skywest 4697, Tower, wind calm, runway 28R, cleared to land. Skywest 4697, roger, United 335, Tower, wind calm, runway 28L, cleared to land.",
+          "asr_confidence": 0.83
+        },
+        {
+          "time": "23:53:30",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaPHeKqhTnqWgbIW6C",
+          "message": "Cleared to land, 28L, United 335.",
+          "asr_confidence": 0.83
+        },
+        {
+          "time": "23:53:33",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaPIInU0O55ehFZRX_",
+          "message": "Tower, 5.55, transmission 1.",
+          "asr_confidence": 0.72
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-22",
+      "Flight": "OO5464",
+      "Flight_IATA": "OO5464",
+      "Flight_ICAO": "SKW5464",
+      "Origin": "KRDM",
+      "Aircraft_Type": "E75L ",
+      "Gate": "F6",
+      "Scheduled_Arrival_UTC": "16:36",
+      "Actual_Landing_UTC": "16:06",
+      "Gate_Arrival_UTC": "16:47",
+      "Actual_Landing_PT": "08:06",
+      "Gate_Arrival_PT": "08:47",
+      "Taxi_Delay_Minutes": 40.1,
+      "Schedule_Variance_Minutes": -29.1,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Early Arrival",
+      "VB_Confidence_Percent": 90,
+      "ATC_Messages_Found": 458,
+      "Evidence_Items": 4,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Confirms flight arrived ≥15 min early – satisfies schedule-variance rule for Early Arrival. | • Shows aircraft had to hold because the assigned gate was still occupied on its early arrival. | • Ramp controller indicates gate will open around the SCHEDULED 08:25 push time, meaning current aircraft is waiting because it is early. | • Previous aircraft at gate departs slightly EARLIER than its 08:25 schedule (actual 08:17); departure was not late (-8 min), so no late-departure trigger – reinforces that delay is driven solely by early arrival of SKW5464.",
+      "Hour_of_Day": 16,
+      "Flight_ID": "SKW5464-1768893229-airline-894p",
+      "Prior_Flight_At_Gate": "SKW5433",
+      "Prior_Flight_Departure_Status": "483 min early (pushed 08:21)",
+      "Evidence_Details": [
+        {
+          "time": "08:06:55",
+          "channel": "system",
+          "message": "Landing time 08:06:55 vs. scheduled 08:36:00 (-29.1 min)",
+          "relevance": "Confirms flight arrived ≥15 min early – satisfies schedule-variance rule for Early Arrival."
+        },
+        {
+          "time": "08:03:52",
+          "channel": "tower",
+          "message": "Skywest 5464, you can roll to Quebec, your gate's occupied.",
+          "relevance": "Shows aircraft had to hold because the assigned gate was still occupied on its early arrival."
+        },
+        {
+          "time": "08:09:25",
+          "channel": "ramp_d",
+          "message": "They scheduled a push 25 after and I'll be coordinating with the other ramp tower to get you over here as soon as possible.",
+          "relevance": "Ramp controller indicates gate will open around the SCHEDULED 08:25 push time, meaning current aircraft is waiting because it is early."
+        },
+        {
+          "time": "08:21:18",
+          "channel": "ramp_d",
+          "message": "Skyway 5433, ramp, your pushback is approved.",
+          "relevance": "Previous aircraft at gate departs slightly EARLIER than its 08:25 schedule (actual 08:17); departure was not late (-8 min), so no late-departure trigger – reinforces that delay is driven solely by early arrival of SKW5464."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "00:02:06",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaRFhCUIROKSZGIpGL",
+          "message": "Skywest 3251, taxi via Bravo, Golf, Alpha to gate, Bravo 3251.",
+          "asr_confidence": 0.68
+        },
+        {
+          "time": "00:02:12",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaRH5Ueh5sHi1g4wUl",
+          "message": "Thank you, have a great day.",
+          "asr_confidence": 0.73
+        },
+        {
+          "time": "00:02:21",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaRJHnsvSpOXoSSfgp",
+          "message": "Thank you very much.",
+          "asr_confidence": 0.58
+        },
+        {
+          "time": "00:02:24",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaRK4lB2-u4YLDv5BK",
+          "message": "Ground, good morning, American 1746, this is 5-2, taxi with me. American 1746, understand, good morning, runway one right, taxi via Alpha, Alpha, 1. Alpha, Alpha, 1, to 1R, American 1746.",
+          "asr_confidence": 0.77
+        },
+        {
+          "time": "00:02:30",
+          "channel": "ramp_d",
+          "channel_id": "-OLdo9JSJfTt9_rVD21u",
+          "talk_id": "-OjaRLU098UDi4T4XrxW",
+          "message": "Roger.",
+          "asr_confidence": 0.57
+        },
+        {
+          "time": "00:02:34",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaRMSG78lT14ccqlji",
+          "message": "Tower, QNH 464, and that's for QNH 464.",
+          "asr_confidence": 0.58
+        },
+        {
+          "time": "00:02:41",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaRO7YgFRQ4TLKgo7o",
+          "message": "Skywest 5464, tower, wind calm, runway 28R, cleared to land. Cleared to land 28R, Skywest 5464.",
+          "asr_confidence": 0.82
+        },
+        {
+          "time": "00:02:42",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaROM4oL1hQwBcH8XQ",
+          "message": "Ground, X-Jet 193, signature, Echo, taxi squawk and squawk 6353. X-Jet 193, runway 3, ready to echo, wait for a United heavy under tow and then taxi via left turn, Charley, Foxtrot, Echo.",
+          "asr_confidence": 0.75
+        },
+        {
+          "time": "00:02:50",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaRQIHi2AuyDgtvp2N",
+          "message": "PACO 96, San Francisco Tower, runway 28R at Echo, line up and wait.",
+          "asr_confidence": 0.81
+        },
+        {
+          "time": "00:02:52",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaRQsMR_njuXASGcJy",
+          "message": "Wait for the United under TOW, 28R at Echo, Charlie, and squawk Charlie. Zulu 3183, back on Charlie and hold short of Echo.",
+          "asr_confidence": 0.72
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-22",
+      "Flight": "OO5676",
+      "Flight_IATA": "OO5676",
+      "Flight_ICAO": "SKW5676",
+      "Origin": "KSEA",
+      "Aircraft_Type": "E75L ",
+      "Gate": "E11",
+      "Scheduled_Arrival_UTC": "16:41",
+      "Actual_Landing_UTC": "16:16",
+      "Gate_Arrival_UTC": "16:46",
+      "Actual_Landing_PT": "08:16",
+      "Gate_Arrival_PT": "08:46",
+      "Taxi_Delay_Minutes": 29.2,
+      "Schedule_Variance_Minutes": -24.2,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Error - No Delay Occurred",
+      "VB_Confidence_Percent": 88,
+      "ATC_Messages_Found": 299,
+      "Evidence_Items": 3,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Immediately after landing the aircraft is handed off to ground with no indication of a hold or delay being imposed. | • Recorded taxi-in time is below the 30-minute delay threshold; by definition no reportable taxi-in delay occurred. | • Gate was unoccupied and available well before SKW5676 arrived, reinforcing that no gate-related delay took place.",
+      "Hour_of_Day": 16,
+      "Flight_ID": "SKW5676-1768893229-airline-1103p",
+      "Prior_Flight_At_Gate": "UAL2029",
+      "Prior_Flight_Departure_Status": "478 min early (pushed 08:32)",
+      "Evidence_Details": [
+        {
+          "time": "08:16:48",
+          "channel": "tower",
+          "message": "Skywest 5676, left on Echo, ground 0.8… cross 28L, ground 0.8",
+          "relevance": "Immediately after landing the aircraft is handed off to ground with no indication of a hold or delay being imposed."
+        },
+        {
+          "time": "Flight Data",
+          "channel": "system",
+          "message": "Landing Time 08:16:48  /  Gate-in Time 08:46:00  →  Taxi-in 29.2 minutes",
+          "relevance": "Recorded taxi-in time is below the 30-minute delay threshold; by definition no reportable taxi-in delay occurred."
+        },
+        {
+          "time": "Gate History",
+          "channel": "system",
+          "message": "Gate E11 available since 00:32 PT (≈8 hrs before arrival); previous flight UAL2029 pushed early at 08:27 PT",
+          "relevance": "Gate was unoccupied and available well before SKW5676 arrived, reinforcing that no gate-related delay took place."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "00:11:49",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaTU4kbfgjdY3G8HP2",
+          "message": "Thank you, have a good day.",
+          "asr_confidence": 0.64
+        },
+        {
+          "time": "00:12:28",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaTcaRKZ67gqaPBcPO",
+          "message": "United 3882 heavy, cross runway 1R.",
+          "asr_confidence": 0.72
+        },
+        {
+          "time": "00:12:31",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaTd7-PXA_1K8nWHA0",
+          "message": "Cross one right and then go to the end, thank you.",
+          "asr_confidence": 0.61
+        },
+        {
+          "time": "00:12:49",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaThkF72wvqWvTXkfW",
+          "message": "Tower, Skywest 5676, wind calm, runway 28L, cleared to land, caution for turbulence, heavy 777 short final, Delta 640, contact departure. Departure, 640.",
+          "asr_confidence": 0.7
+        },
+        {
+          "time": "00:13:01",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaTkWofbPyRp4IPZnw",
+          "message": "Tower, Foxtrot 547, visual 28R. Foxtrot 547, Tower, runway 28R, cleared to land, wind calm, traffic 10 o'clock, 2 miles northbound, 1,200 indicated. Cleared to land 28R, willco, 547.",
+          "asr_confidence": 0.81
+        },
+        {
+          "time": "00:13:06",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaTloVv5jmSLTUXZiX",
+          "message": "Traffic in sight, 547, no factor. 547, roger, you can roll to Kilo.",
+          "asr_confidence": 0.73
+        },
+        {
+          "time": "00:13:07",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaTm4-9_fdXmfFEqEL",
+          "message": "Thank you.",
+          "asr_confidence": 0.63
+        },
+        {
+          "time": "00:13:18",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaTojFnVXZz3kt2NgM",
+          "message": "Ground, hello, Delta 1421 and Charlie 5, Zulu, ready to push. Delta 1421, good morning, cleared for takeoff, 5B, your discretion is to stop left on the other line. Alright, 5B, our discretion is to stop left on the other line, 6L, Delta 1421.",
+          "asr_confidence": 0.8
+        },
+        {
+          "time": "00:13:22",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaTpaC1luAMiy_7sH5",
+          "message": "United 3882, heavy tower. Go ahead, United 3882, heavy tower. Yeah, looks like maybe a new destination for United. We were looking at it. How do you pronounce the name of the city?",
+          "asr_confidence": 0.9
+        },
+        {
+          "time": "00:13:26",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaTqfqnN3A8lxfGuR1",
+          "message": "JAMIN, okay, thank you.",
+          "asr_confidence": 0.64
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-22",
+      "Flight": "UA450",
+      "Flight_IATA": "UA450",
+      "Flight_ICAO": "UAL450",
+      "Origin": "KRNO",
+      "Aircraft_Type": "A319 ",
+      "Gate": "D14",
+      "Scheduled_Arrival_UTC": "17:38",
+      "Actual_Landing_UTC": "17:09",
+      "Gate_Arrival_UTC": "17:47",
+      "Actual_Landing_PT": "09:09",
+      "Gate_Arrival_PT": "09:47",
+      "Taxi_Delay_Minutes": 38.0,
+      "Schedule_Variance_Minutes": -29.0,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Taxiway/Alleyway Congestion",
+      "VB_Confidence_Percent": 82,
+      "ATC_Messages_Found": 325,
+      "Evidence_Items": 3,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Immediately after landing the aircraft is instructed to hold before crossing the active departure runway 28L, starting the delay. | • Five minutes later the crew reports still waiting in the south-field hold-short area, confirming they have not been allowed to proceed toward the gate. | • More than 34 minutes after the initial hold-short instruction, ATC finally clears UAL450 to cross runway 28L, ending the extended wait caused by heavy departure traffic on the runway/taxiway system.",
+      "Hour_of_Day": 17,
+      "Flight_ID": "UAL450-1768889711-fa-566p",
+      "Prior_Flight_At_Gate": "SKW5736",
+      "Prior_Flight_Departure_Status": "474 min early (pushed 09:35)",
+      "Evidence_Details": [
+        {
+          "time": "09:09:38",
+          "channel": "tower",
+          "message": "United 450 at Tango, hold short runway 28L.",
+          "relevance": "Immediately after landing the aircraft is instructed to hold before crossing the active departure runway 28L, starting the delay."
+        },
+        {
+          "time": "09:14:44",
+          "channel": "tower",
+          "message": "Tower, United 450, you're tracking, we're at Delta 14 now.",
+          "relevance": "Five minutes later the crew reports still waiting in the south-field hold-short area, confirming they have not been allowed to proceed toward the gate."
+        },
+        {
+          "time": "09:44:02",
+          "channel": "tower",
+          "message": "United 450 is 8 pushing on Tango, cross runway 28L, ground 121.8, good day.",
+          "relevance": "More than 34 minutes after the initial hold-short instruction, ATC finally clears UAL450 to cross runway 28L, ending the extended wait caused by heavy departure traffic on the runway/taxiway system."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "01:04:03",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaeR4Vzo5sw13kKMoy",
+          "message": "Attention, Alpha is now turning off, runway 303.",
+          "asr_confidence": 0.57
+        },
+        {
+          "time": "01:04:31",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaeXuJa0ru4tseYjUn",
+          "message": "Ground, United 2623, Golf, runway 10L, cleared for takeoff, cleared to land, 526, give way to company 730 at Hotel.",
+          "asr_confidence": 0.58
+        },
+        {
+          "time": "01:04:42",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Ojae_b40KESYw3xDPgZ",
+          "message": "United 2391, turn left at Quebec, hold short, runway 28L.",
+          "asr_confidence": 0.73
+        },
+        {
+          "time": "01:04:58",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaedcALRDQ6peIkT8v",
+          "message": "Delta 383 heavy, RNAV to TIDY, runway 1R, cleared for takeoff. RNAV to TIDY, cleared for takeoff, 1R, Delta 383 heavy.",
+          "asr_confidence": 0.79
+        },
+        {
+          "time": "01:04:59",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaedsB7K7_EZ844Y3o",
+          "message": "Thank you.",
+          "asr_confidence": 0.61
+        },
+        {
+          "time": "01:05:02",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaeeVCJ1jhk1OVBrHR",
+          "message": "6F, 416, you ready?",
+          "asr_confidence": 0.65
+        },
+        {
+          "time": "01:05:04",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojaef3wVrUVB9sLVIVS",
+          "message": "Ground, United 573, looks like there's a plane behind us, we're just holding for now.",
+          "asr_confidence": 0.84
+        },
+        {
+          "time": "01:05:09",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjaegCmgxVM5h_pfiky",
+          "message": "Yeah, so we'll take it as traffic frequency, roger.",
+          "asr_confidence": 0.57
+        },
+        {
+          "time": "01:05:12",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojaegwo2avFVVepF6hr",
+          "message": "Copy, 572.",
+          "asr_confidence": 0.57
+        },
+        {
+          "time": "01:05:13",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjaehGLMFV7tRU5dU1R",
+          "message": "We're going to be about two minutes out. Roger, United 1370, taxi for cover, runway 18R, line up and wait. Line up and wait, 18R, United 1370.",
+          "asr_confidence": 0.8
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-22",
+      "Flight": "OO5903",
+      "Flight_IATA": "OO5903",
+      "Flight_ICAO": "SKW5903",
+      "Origin": "KSBP",
+      "Aircraft_Type": "CRJ2 ",
+      "Gate": "F10",
+      "Scheduled_Arrival_UTC": "20:14",
+      "Actual_Landing_UTC": "19:40",
+      "Gate_Arrival_UTC": "20:14",
+      "Actual_Landing_PT": "11:40",
+      "Gate_Arrival_PT": "12:14",
+      "Taxi_Delay_Minutes": 33.8,
+      "Schedule_Variance_Minutes": -33.8,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Early Arrival and Late Departure",
+      "VB_Confidence_Percent": 90,
+      "ATC_Messages_Found": 370,
+      "Evidence_Items": 3,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Confirms the ‘Late Departure’ half of the compound classification; gate was still occupied well after SKW5903 landed. | • Shows SKW5662 was only leaving the area around 12:06, proving it was still occupying F10 during SKW5903’s taxi-in period. | • Meets ≥15-min early-arrival criterion, completing the ‘Early Arrival’ portion of the compound classification.",
+      "Hour_of_Day": 19,
+      "Flight_ID": "SKW5903-1768888696-airline-1294p",
+      "Prior_Flight_At_Gate": "SKW5662",
+      "Prior_Flight_Departure_Status": "274 min early (pushed 11:53)",
+      "Evidence_Details": [
+        {
+          "time": "gate_history",
+          "channel": "gate_history",
+          "message": "Previous flight at F10 – SKW5662 – Scheduled OUT 08:28, Actual OUT 12:01 ( > 210-min late, ≥15-min threshold).",
+          "relevance": "Confirms the ‘Late Departure’ half of the compound classification; gate was still occupied well after SKW5903 landed."
+        },
+        {
+          "time": "12:06:47",
+          "channel": "tower/ground (ASR)",
+          "message": "\"Aircraft 5662, ready for takeoff, have a nice day.\"",
+          "relevance": "Shows SKW5662 was only leaving the area around 12:06, proving it was still occupying F10 during SKW5903’s taxi-in period."
+        },
+        {
+          "time": "flight_info",
+          "channel": "schedule",
+          "message": "SKW5903 landed 11:40:13 vs. scheduled 12:14:00 (-33.8 min early).",
+          "relevance": "Meets ≥15-min early-arrival criterion, completing the ‘Early Arrival’ portion of the compound classification."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "03:35:18",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbC2iB4JyYU7v9MIJh",
+          "message": "Skywest 903, San Francisco tower, traffic will hold in position, heavy aircraft will turn on, start slowing, runway 2L, turn on.",
+          "asr_confidence": 0.71
+        },
+        {
+          "time": "03:35:27",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjbC4rjYgMxJQBfy7Wd",
+          "message": "Ground, United 2619 is on Tango, we're going to park Echo, sorry, Foxtrot 17. United 2619, taxi via Alpha, Bravo 1, Bravo. Alpha, Bravo 1, Bravo, United 2619.",
+          "asr_confidence": 0.79
+        },
+        {
+          "time": "03:35:30",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbC5fLqpct9qDBGNeu",
+          "message": "Cessna 6903, runway 28L, cleared to land, traffic hold position, heavy aircraft, cross runway 28L, cleared to land, Cessna 6903.",
+          "asr_confidence": 0.64
+        },
+        {
+          "time": "03:35:39",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjbC7rRP3PJFmv64Ihu",
+          "message": "Ground, Foxtrot 1021, okay, company's pushing you on. Foxtrot 1021, yeah, we're gonna go cross the alley before you can use the line up to line in. Alright, I'll line in, 1021.",
+          "asr_confidence": 0.8
+        },
+        {
+          "time": "03:35:43",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbC8liX5BXFBlGxFr_",
+          "message": "Tower, United 1387, cleared to land runway 28R. United 1387, San Francisco Tower, heavy 3-liner, hold short of runway 28R, cleared to land.",
+          "asr_confidence": 0.73
+        },
+        {
+          "time": "03:35:47",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbC9pEIwa9X09nANv5",
+          "message": "United 717, contact NORCAL departure, see ya.",
+          "asr_confidence": 0.9
+        },
+        {
+          "time": "03:36:01",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjbCD5anXBEPgY8VdHp",
+          "message": "Ground, Skywest 5854, we think we got it fixed, 7B, Delta. Skywest 5854, yeah, just like planned for you, after the 737, runway 1R, taxi via Alpha, Alpha, 1, the second 737 will be turning right. Right after the first 737, Alpha, Alpha, 1, to 1R, Skywest 5854.",
+          "asr_confidence": 0.83
+        },
+        {
+          "time": "03:36:19",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjbCHavZzlZdgW9annJ",
+          "message": "Ground, United Supercar A, 35A, taxi heading to runway, Alpha, 12, looking well, United Supercar A, thank you sir.",
+          "asr_confidence": 0.6
+        },
+        {
+          "time": "03:36:22",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbCIJqxmAwqVA2dI4n",
+          "message": "That's it. Tower, thank you.",
+          "asr_confidence": 0.76
+        },
+        {
+          "time": "03:36:25",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbCJ-nygw3m2P8g_iA",
+          "message": "Alright, 4,000, good day.",
+          "asr_confidence": 0.57
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-22",
+      "Flight": "OO5840",
+      "Flight_IATA": "OO5840",
+      "Flight_ICAO": "SKW5840",
+      "Origin": "KSMF",
+      "Aircraft_Type": "CRJ2 ",
+      "Gate": "F10",
+      "Scheduled_Arrival_UTC": "23:35",
+      "Actual_Landing_UTC": "23:19",
+      "Gate_Arrival_UTC": "23:50",
+      "Actual_Landing_PT": "15:19",
+      "Gate_Arrival_PT": "15:50",
+      "Taxi_Delay_Minutes": 30.3,
+      "Schedule_Variance_Minutes": -15.3,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Early Arrival and Late Departure",
+      "VB_Confidence_Percent": 90,
+      "ATC_Messages_Found": 244,
+      "Evidence_Items": 3,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Confirms the gate was still occupied by a flight that departed ≥15 min late, satisfying the Late-Departure condition | • Meets Early-Arrival condition (arrival ≥15 min before schedule) | • Ground controller indicates arriving aircraft must wait because gate (F10) is still occupied—operational symptom of the previous late departure",
+      "Hour_of_Day": 23,
+      "Flight_ID": "SKW5840-1768892603-airline-1449p",
+      "Prior_Flight_At_Gate": "SKW5707",
+      "Prior_Flight_Departure_Status": "159 min late (pushed 15:54)",
+      "Evidence_Details": [
+        {
+          "time": "Gate History",
+          "channel": "data",
+          "message": "Previous flight at F10: SKW5707 – Scheduled OUT 13:15, Actual OUT 15:40 (145-min late departure)",
+          "relevance": "Confirms the gate was still occupied by a flight that departed ≥15 min late, satisfying the Late-Departure condition"
+        },
+        {
+          "time": "15:19:44",
+          "channel": "flight info",
+          "message": "SKW5840 landed 15:19:44, scheduled 15:35 (-15.3 min early)",
+          "relevance": "Meets Early-Arrival condition (arrival ≥15 min before schedule)"
+        },
+        {
+          "time": "15:44:48",
+          "channel": "ground",
+          "message": "\"Yeah, they're almost ready, so hold the gate, I'll get you moving, it's heading down your way.\"",
+          "relevance": "Ground controller indicates arriving aircraft must wait because gate (F10) is still occupied—operational symptom of the previous late departure"
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "07:14:45",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbzHLjjE_EekC8Ptfj",
+          "message": "Skywest 5625, follow the practical speed, runway 28L, cleared to land. Follow the practical speed, 28L, cleared to land, sorry about that, Skywest 5625. Alaska 680, runway 28R, cleared to land, caution wake turbulence, heavy lands of the parallel. 28R, cleared to land, Alaska 680.",
+          "asr_confidence": 0.87
+        },
+        {
+          "time": "07:14:49",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbzILZ7OAq5qRQT_fd",
+          "message": "November Seven One Nine, go Foxtrot, what's your altitude, altimeter two niner niner seven.",
+          "asr_confidence": 0.73
+        },
+        {
+          "time": "07:14:58",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbzKS168kU8IV6lCLi",
+          "message": "Altitude is 1400, 29R, 795. Jet 577, contact NORCAL, departure. Departure, 577.",
+          "asr_confidence": 0.72
+        },
+        {
+          "time": "07:15:02",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbzLWuvm31xi6g5cDv",
+          "message": "Southwest 4016, contact NORC at departure. Departure, Southwest 4016.",
+          "asr_confidence": 0.77
+        },
+        {
+          "time": "07:15:06",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbzMT-i3C9K0s8Es7r",
+          "message": "roger",
+          "asr_confidence": 0.53
+        },
+        {
+          "time": "07:15:09",
+          "channel": "ramp_d",
+          "channel_id": "-OLdo9JSJfTt9_rVD21u",
+          "talk_id": "-OjbzN0_TGjuiQj2h_DJ",
+          "message": "Roger.",
+          "asr_confidence": 0.7
+        },
+        {
+          "time": "07:15:14",
+          "channel": "ramp_d",
+          "channel_id": "-OLdo9JSJfTt9_rVD21u",
+          "talk_id": "-OjbzON78r9vfTqLy3q0",
+          "message": "Airram 7560 is joining Alpha for Foxtrot 8.",
+          "asr_confidence": 0.66
+        },
+        {
+          "time": "07:15:14",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjbzOR2B0HvF8yssqEw",
+          "message": "Skywest 5840, wind 260 at 9, runway 28R, cleared to land.",
+          "asr_confidence": 0.82
+        },
+        {
+          "time": "07:15:19",
+          "channel": "ramp_d",
+          "channel_id": "-OLdo9JSJfTt9_rVD21u",
+          "talk_id": "-OjbzPfTWVX8SNAWRhyM",
+          "message": "Skyway 6560, ramp, West line to gate, West line to departure, Skyway 6560.",
+          "asr_confidence": 0.74
+        },
+        {
+          "time": "07:15:20",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjbzPwsRJsNhqAZvYJC",
+          "message": "Ground, Delta 958, Delta 4, with hotel.",
+          "asr_confidence": 0.68
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-23",
+      "Flight": "OO5480",
+      "Flight_IATA": "OO5480",
+      "Flight_ICAO": "SKW5480",
+      "Origin": "KASE",
+      "Aircraft_Type": "E75L ",
+      "Gate": "F6",
+      "Scheduled_Arrival_UTC": "05:20",
+      "Actual_Landing_UTC": "04:33",
+      "Gate_Arrival_UTC": "05:18",
+      "Actual_Landing_PT": "20:33",
+      "Gate_Arrival_PT": "21:18",
+      "Taxi_Delay_Minutes": 45.0,
+      "Schedule_Variance_Minutes": -47.0,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Early Arrival",
+      "VB_Confidence_Percent": 90,
+      "ATC_Messages_Found": 363,
+      "Evidence_Items": 5,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Meets ≥15-minute early-arrival threshold; schedule-driven root cause tier applies. | • Gate correctly occupied by an on-time/early departing aircraft when SKW5480 landed, confirming delay was created by SKW5480 arriving far ahead of its planned gate window, not by a late departure. | • Initial instruction to hold shortly after landing shows aircraft beginning an extended ground sequence before gate availability. | • Demonstrates ongoing vectoring away from gate while F6 still occupied. | • Confirms delay threshold was exceeded and ties long taxi directly to early arrival / waiting period.",
+      "Hour_of_Day": 4,
+      "Flight_ID": "SKW5480-1768893229-airline-909p",
+      "Prior_Flight_At_Gate": "SKW5664",
+      "Prior_Flight_Departure_Status": "466 min early (pushed 21:13)",
+      "Evidence_Details": [
+        {
+          "time": "20:33:02",
+          "channel": "flight_info",
+          "message": "Actual landing 20:33 vs scheduled 21:20  →  schedule variance –47 min",
+          "relevance": "Meets ≥15-minute early-arrival threshold; schedule-driven root cause tier applies."
+        },
+        {
+          "time": "gate_history",
+          "channel": "gate_history",
+          "message": "Previous flight at F6 – SKW5664 – scheduled OUT 21:00, actual pushback 20:56 (only 4 min early).",
+          "relevance": "Gate correctly occupied by an on-time/early departing aircraft when SKW5480 landed, confirming delay was created by SKW5480 arriving far ahead of its planned gate window, not by a late departure."
+        },
+        {
+          "time": "20:32:40",
+          "channel": "tower",
+          "message": "“Skywest 5480, turn left at Tango, hold short of runway 28L.”",
+          "relevance": "Initial instruction to hold shortly after landing shows aircraft beginning an extended ground sequence before gate availability."
+        },
+        {
+          "time": "20:35:24",
+          "channel": "ground",
+          "message": "“Skywest 5480, right turn on Bravo …” (continuation of taxi but still remote from F-pier)",
+          "relevance": "Demonstrates ongoing vectoring away from gate while F6 still occupied."
+        },
+        {
+          "time": "21:18:00",
+          "channel": "flight_info",
+          "message": "Gate-in 21:18, yielding total taxi-in 45 min (≥30 min).",
+          "relevance": "Confirms delay threshold was exceeded and ties long taxi directly to early arrival / waiting period."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "12:28:04",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd5zn5AXUwAjh-ssyV",
+          "message": "Ground, 807Q, I don't know if there's enough room on Charlie behind this Hawaiian for us to get by.",
+          "asr_confidence": 0.82
+        },
+        {
+          "time": "12:28:09",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd60--550pK7gWQ_DC",
+          "message": "Okay, let me see you back next. Have a good day.",
+          "asr_confidence": 0.62
+        },
+        {
+          "time": "12:28:16",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd61u_WPnwZtr8lODa",
+          "message": "Thank you, Bravo 7, do you need any assistance or you're helpful in the line for some reason?",
+          "asr_confidence": 0.6
+        },
+        {
+          "time": "12:28:17",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Ojd62Ahfmt7-RkPtymj",
+          "message": "United 28 heavy, via Quebec, cross 28L, ground point eight. Cross 28L, United 28.",
+          "asr_confidence": 0.74
+        },
+        {
+          "time": "12:28:26",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd64Haiaf5-b-AFYAC",
+          "message": "Can you forward to the bus so you can clear up the taxiway behind you?",
+          "asr_confidence": 0.74
+        },
+        {
+          "time": "12:28:28",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Ojd64i72OR4IVNxOecq",
+          "message": "Tower, Laske 812 heavy, 28L. Laske 812 heavy, still weird to say, runway 28L, cleared to land. Cleared to land, 28L, Laske 812 heavy.",
+          "asr_confidence": 0.83
+        },
+        {
+          "time": "12:28:29",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd64we3AZZYTL0KIUg",
+          "message": "Thank you.",
+          "asr_confidence": 0.54
+        },
+        {
+          "time": "12:28:45",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd68qFMx3ZszJ6pDLO",
+          "message": "Thank you.",
+          "asr_confidence": 0.63
+        },
+        {
+          "time": "12:28:51",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Ojd6AHOils7oVALsj-f",
+          "message": "Horizon 2335, San Francisco Tower, one last line up and wait. One last line up and wait, Horizon 2335.",
+          "asr_confidence": 0.81
+        },
+        {
+          "time": "12:28:59",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd6CQqgvLO7or6qqLa",
+          "message": "Ground, United 28 heavy, on getback for golf, golf. United 28 heavy, taxi to ground, taxi left, Bravo, good evening, Tower, United 28.",
+          "asr_confidence": 0.64
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-23",
+      "Flight": "OO5476",
+      "Flight_IATA": "OO5476",
+      "Flight_ICAO": "SKW5476",
+      "Origin": "KMRY",
+      "Aircraft_Type": "CRJ2 ",
+      "Gate": "F10",
+      "Scheduled_Arrival_UTC": "05:20",
+      "Actual_Landing_UTC": "04:42",
+      "Gate_Arrival_UTC": "05:29",
+      "Actual_Landing_PT": "20:42",
+      "Gate_Arrival_PT": "21:29",
+      "Taxi_Delay_Minutes": 46.9,
+      "Schedule_Variance_Minutes": -37.9,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Aircraft Mechanical",
+      "VB_Confidence_Percent": 87,
+      "ATC_Messages_Found": 413,
+      "Evidence_Items": 3,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Previous flight SKW4638 (occupying gate F10) reports a MAINTENANCE LIGHT and plans to return to the gate, indicating a mechanical issue that keeps the gate occupied. | • Controller confirms another aircraft (current flight SKW5476) is waiting for F10, linking the mechanical problem on SKW4638 directly to the arriving aircraft’s delay. | • SKW5476 requests to hold short because gate F10 is still unavailable while maintenance is addressed, demonstrating the downstream impact of the mechanical issue.",
+      "Hour_of_Day": 4,
+      "Flight_ID": "SKW5476-1768889415-airline-1377p",
+      "Prior_Flight_At_Gate": "SKW4638",
+      "Prior_Flight_Departure_Status": "453 min early (pushed 21:11)",
+      "Evidence_Details": [
+        {
+          "time": "21:11:00",
+          "channel": "ground",
+          "message": "Ground, Skywest 4638, Alpha Foxtrot 10, we've got a maintenance light needed, we're coordinating to get a parking crew ready to go right back to Foxtrot 10.",
+          "relevance": "Previous flight SKW4638 (occupying gate F10) reports a MAINTENANCE LIGHT and plans to return to the gate, indicating a mechanical issue that keeps the gate occupied."
+        },
+        {
+          "time": "21:11:00",
+          "channel": "ground",
+          "message": "…there's a company behind me that wants to go to Foxtrot 10, so hopefully your company can set that up.",
+          "relevance": "Controller confirms another aircraft (current flight SKW5476) is waiting for F10, linking the mechanical problem on SKW4638 directly to the arriving aircraft’s delay."
+        },
+        {
+          "time": "21:13:38",
+          "channel": "ground",
+          "message": "Sky… 6476, …it may just be like a minute or two. Can we hang out here for a second?  …just let me know when you're ready to clear to gate.",
+          "relevance": "SKW5476 requests to hold short because gate F10 is still unavailable while maintenance is addressed, demonstrating the downstream impact of the mechanical issue."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "12:37:27",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Ojd88GBipHGGkJiW353",
+          "message": "Singapore 33 Heavy, winds 250 at 11, runway 28L, cleared for takeoff. Cleared for takeoff, runway 28L, Singapore 33 Heavy.",
+          "asr_confidence": 0.9
+        },
+        {
+          "time": "12:37:32",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd89YF7AM4-qwZFTYh",
+          "message": "San Francisco ground, American 15, on Echo for Bravo 27. American 15, thank you, contact Bravo, Hotel, Alpha. Bravo, Hotel, Alpha, American 15.",
+          "asr_confidence": 0.77
+        },
+        {
+          "time": "12:37:39",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Ojd8BImr3HBNtJgiLbY",
+          "message": "JetBlue 616, San Francisco Tower, traffic will land west, runway 1R, line up and wait. Runway 1R, line up and wait, JetBlue 616.",
+          "asr_confidence": 0.86
+        },
+        {
+          "time": "12:37:50",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd8Dr2xCHAXYOi2ZvV",
+          "message": "Roger, you're next to the taxiway, thank you very much, have a nice day, thank you.",
+          "asr_confidence": 0.52
+        },
+        {
+          "time": "12:38:27",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Ojd8N-B_jvhWCMETXfL",
+          "message": "Hello, San Francisco Tower, Alaska 393 is with you, coming to find you, runway 28R. Alaska 393, San Francisco Tower, wind 250 at 12, runway 28R, cleared to land, traffic is holding runway 1. Cleared to land 28R, Alaska 393. Tango 433, heavy contact, no departure, good night.",
+          "asr_confidence": 0.82
+        },
+        {
+          "time": "12:38:29",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Ojd8N_1JzC6gXqLlBbO",
+          "message": "Over to departure, Singapore Radio, have a good day.",
+          "asr_confidence": 0.67
+        },
+        {
+          "time": "12:38:52",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd8T0HOjQuHlrQm0vs",
+          "message": "Delta Jet Blue, 734, not in sight yet, thank you, see you next time.",
+          "asr_confidence": 0.57
+        },
+        {
+          "time": "12:38:58",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-Ojd8UYsrYE2QRejC-_k",
+          "message": "Zulu 734, roger, good day, have a good day. Thank you, have a good day. Thank you, have a good day. Thank you, have a good day.",
+          "asr_confidence": 0.66
+        },
+        {
+          "time": "12:39:08",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Ojd8WswfQlAjM1rsF8a",
+          "message": "Delta 756, turn left at Tango, hold short of runway 28L. Left at Tango, hold short of 28L, Delta 756.",
+          "asr_confidence": 0.87
+        },
+        {
+          "time": "12:39:26",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-Ojd8aNyhWVKSKz2CYLm",
+          "message": "JetBlue 616, wind 260 at 11, runway 1R, cleared for takeoff. 1R, cleared for takeoff, JetBlue 616. Cathay 872 heavy, turn left at Echo, contact tower.",
+          "asr_confidence": 0.84
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-23",
+      "Flight": "OO6006",
+      "Flight_IATA": "OO6006",
+      "Flight_ICAO": "SKW6006",
+      "Origin": "KTUS",
+      "Aircraft_Type": "E75L ",
+      "Gate": "F8",
+      "Scheduled_Arrival_UTC": "05:45",
+      "Actual_Landing_UTC": "04:56",
+      "Gate_Arrival_UTC": "05:30",
+      "Actual_Landing_PT": "20:56",
+      "Gate_Arrival_PT": "21:30",
+      "Taxi_Delay_Minutes": 34.0,
+      "Schedule_Variance_Minutes": -49.0,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Early Arrival",
+      "VB_Confidence_Percent": 86,
+      "ATC_Messages_Found": 331,
+      "Evidence_Items": 4,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Meets ≥15-minute early-arrival threshold; schedule variance alone can create gate conflict. | • Controller warns 6006 before touchdown that its gate is still occupied, confirming gate conflict driven by its very early arrival. | • Proves the blocking flight was NOT late; therefore gate occupancy was caused by 6006 arriving far ahead of schedule, not a late departure. | • Shows 6006 finally taxiing to the F8 ramp after waiting for gate to free, consistent with early-arrival-induced hold.",
+      "Hour_of_Day": 4,
+      "Flight_ID": "SKW6006-1768892603-airline-1467p",
+      "Prior_Flight_At_Gate": "SKW5465",
+      "Prior_Flight_Departure_Status": "481 min early (pushed 21:13)",
+      "Evidence_Details": [
+        {
+          "time": "20:56:03",
+          "channel": "metadata",
+          "message": "Landing time 20:56 vs. scheduled 21:45  → 49-minute early arrival",
+          "relevance": "Meets ≥15-minute early-arrival threshold; schedule variance alone can create gate conflict."
+        },
+        {
+          "time": "20:53:22",
+          "channel": "tower",
+          "message": "Skywest 6006, you're occupied, plan to roll out to Quebec.",
+          "relevance": "Controller warns 6006 before touchdown that its gate is still occupied, confirming gate conflict driven by its very early arrival."
+        },
+        {
+          "time": "21:11:00",
+          "channel": "gate_history",
+          "message": "Previous flight SKW5465 pushed at 21:11, four minutes BEFORE its 21:15 scheduled departure.",
+          "relevance": "Proves the blocking flight was NOT late; therefore gate occupancy was caused by 6006 arriving far ahead of schedule, not a late departure."
+        },
+        {
+          "time": "21:22:28",
+          "channel": "ground",
+          "message": "Skywest 6006, approaching spot 10 for Foxtrot 8.",
+          "relevance": "Shows 6006 finally taxiing to the F8 ramp after waiting for gate to free, consistent with early-arrival-induced hold."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "12:51:08",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjdBGr98EOs9cZSPeN8",
+          "message": "United 1341, turn left at Tango, cross runway 2L, contact ground, good night. United 564, wind 260 at 13, runway 1L, cleared for takeoff.",
+          "asr_confidence": 0.86
+        },
+        {
+          "time": "12:51:26",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjdBLFC_hdQRz924IPA",
+          "message": "Tower, 9111, with you, turning final for visual 3L. 9111, San Francisco Tower, wind 260 at 13, runway 3L, cleared to land. Cleared to land, 9111.",
+          "asr_confidence": 0.79
+        },
+        {
+          "time": "12:51:28",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjdBLfdKX879KcEwcWU",
+          "message": "Ground, United Cessna 32, MOC West, requesting deadhead at G-Terminal. Cessna 32, ground, deadhead as requested. As requested, United Cessna 32, thank you.",
+          "asr_confidence": 0.74
+        },
+        {
+          "time": "12:51:43",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjdBPMF6mZvt83MZwEs",
+          "message": "Ground, United 1341, cleared to head left at Tango, or just back, going to Echo 8.",
+          "asr_confidence": 0.66
+        },
+        {
+          "time": "12:51:56",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjdBSYDpgRtHMFZDRla",
+          "message": "United 1541, taxi to Bravo, hold short of Kilo, as you drive by your gate, let me know if it's open or not.",
+          "asr_confidence": 0.77
+        },
+        {
+          "time": "12:52:08",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjdBVRZmFLvrS0Lq_cQ",
+          "message": "United 564, contact departure. Roger, United 564.",
+          "asr_confidence": 0.71
+        },
+        {
+          "time": "12:52:13",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjdBWhCWS7Jgei2Vw3C",
+          "message": "Southwest 3022 is at the bridge, visual 28R.",
+          "asr_confidence": 0.6
+        },
+        {
+          "time": "12:52:17",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjdBXdOmu4j6REo31RQ",
+          "message": "Ground, our gate is open, United 1341.",
+          "asr_confidence": 0.79
+        },
+        {
+          "time": "12:52:18",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjdBXr4PmQtuA06GvWp",
+          "message": "Southwest 3022, San Francisco Tower, wind 260 at 13, runway 28R, cleared to land.",
+          "asr_confidence": 0.83
+        },
+        {
+          "time": "12:52:21",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjdBYaPDuXBjens296X",
+          "message": "Straight right, cleared to land, Southwest 3026.",
+          "asr_confidence": 0.8
+        }
+      ]
+    },
+    {
+      "Date": "2026-01-23",
+      "Flight": "UA2855",
+      "Flight_IATA": "UA2855",
+      "Flight_ICAO": "UAL2855",
+      "Origin": "KIAH",
+      "Aircraft_Type": "B39M ",
+      "Gate": "F5",
+      "Scheduled_Arrival_UTC": "06:59",
+      "Actual_Landing_UTC": "06:26",
+      "Gate_Arrival_UTC": "07:06",
+      "Actual_Landing_PT": "22:26",
+      "Gate_Arrival_PT": "23:06",
+      "Taxi_Delay_Minutes": 39.8,
+      "Schedule_Variance_Minutes": -32.8,
+      "Schedule_Status": "Early",
+      "VB_Delay_Classification": "Early Arrival",
+      "VB_Confidence_Percent": 84,
+      "ATC_Messages_Found": 236,
+      "Evidence_Items": 4,
+      "Analysis_Quality": "High",
+      "Key_Evidence": "• Gate F5 was still legitimately occupied until 22:58; there is no qualifying Late Departure or Late Tow Off for the blocking flight. | • Confirms the aircraft landed well before its scheduled arrival time (landing 22:26 vs. scheduled 22:59 – 32.8 min early). | • Shows United 2855 was immediately given taxi instructions toward gate F5 with no indication of mechanical, tow, FAA, or staffing issues. | • Meets rule for pure Early Arrival classification and fails criteria for compound (Early Arrival + Late Departure) or any higher-priority root cause.",
+      "Hour_of_Day": 6,
+      "Flight_ID": "UAL2855-1768896349-airline-2017p",
+      "Prior_Flight_At_Gate": "UAL1757",
+      "Prior_Flight_Departure_Status": "482 min early (pushed 22:43)",
+      "Evidence_Details": [
+        {
+          "time": "N/A",
+          "channel": "gate_history",
+          "message": "Previous flight at gate F5 (UAL1757) had scheduled departure 22:46 PT, actual pushback 22:58 PT – only 12 min late ( <15 min threshold).",
+          "relevance": "Gate F5 was still legitimately occupied until 22:58; there is no qualifying Late Departure or Late Tow Off for the blocking flight."
+        },
+        {
+          "time": "22:22:07",
+          "channel": "tower",
+          "message": "United 2855, … runway 28R, cleared to land.",
+          "relevance": "Confirms the aircraft landed well before its scheduled arrival time (landing 22:26 vs. scheduled 22:59 – 32.8 min early)."
+        },
+        {
+          "time": "22:27:06",
+          "channel": "ground",
+          "message": "Ground, United 2865 (ASR likely 2855), cleared to Tango, park in F5.",
+          "relevance": "Shows United 2855 was immediately given taxi instructions toward gate F5 with no indication of mechanical, tow, FAA, or staffing issues."
+        },
+        {
+          "time": "N/A",
+          "channel": "calculation",
+          "message": "Schedule variance = −32.8 min (≥ 15 min early); previous flight departure delay = 12 min (<15 min). The only qualifying factor is the large early-arrival variance.",
+          "relevance": "Meets rule for pure Early Arrival classification and fails criteria for compound (Early Arrival + Late Departure) or any higher-priority root cause."
+        }
+      ],
+      "ATC_Messages": [
+        {
+          "time": "14:21:20",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjdVuyIRBFDX52mdg61",
+          "message": "Cessna 96H, contact me, uh, later, thank you. Sure, uh, Bravo to you, thank you very much.",
+          "asr_confidence": 0.58
+        },
+        {
+          "time": "14:21:38",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjdVzaZOLRNAtmKZkNS",
+          "message": "Bravo, short of Echo, Delta 2986. Alpha to the ramp, Delta 2986. Bravo, Echo, Alpha to the ramp behind Southwest. Bravo, Echo, Alpha to the ramp behind Southwest, Delta 2986.",
+          "asr_confidence": 0.78
+        },
+        {
+          "time": "14:21:44",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjdW01j-74oZCOtyOOG",
+          "message": "Tower, Alaska 520, visual 28L.",
+          "asr_confidence": 0.79
+        },
+        {
+          "time": "14:21:51",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjdW1ZJPrpwt_T8SexJ",
+          "message": "Alaska 528, San Francisco Tower, wind calm, runway 28L, cleared to land.",
+          "asr_confidence": 0.87
+        },
+        {
+          "time": "14:21:55",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjdW2ZGR0e37sw9PuRD",
+          "message": "United 2855, this is your 28R.",
+          "asr_confidence": 0.66
+        },
+        {
+          "time": "14:22:07",
+          "channel": "tower",
+          "channel_id": "-OK_5HHRHO-ujKcKzHXZ",
+          "talk_id": "-OjdW5cN6kdAKu0qY2JE",
+          "message": "2855, San Francisco Tower, wind calm, runway 28R, cleared to land. 28R, cleared to land, United 2855.",
+          "asr_confidence": 0.82
+        },
+        {
+          "time": "14:22:10",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjdW6LBVt7GJujCgO4R",
+          "message": "Thank you very much, have a good day.",
+          "asr_confidence": 0.57
+        },
+        {
+          "time": "14:22:30",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjdWBAITeZrggyvvC9y",
+          "message": "Foxtrot 16, Bravo 1, 2-way company here, I'll say, on the call, and then Bravo 1, Zulu.",
+          "asr_confidence": 0.68
+        },
+        {
+          "time": "14:22:38",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjdWDBdsYXPvffnvTOi",
+          "message": "Ground, United 268, Echo, stand at 7, Bravo, on the show for MO2E.",
+          "asr_confidence": 0.58
+        },
+        {
+          "time": "14:22:55",
+          "channel": "ground",
+          "channel_id": "-OK_9PZOIhBJND6fpJON",
+          "talk_id": "-OjdWHBYQxeu_8EWsaSD",
+          "message": "United 677, Bravo is left off N14. United 677, Echo, 10. Taxiway 10, proceed Alpha, Kilo, Bravo, short of the back. Alpha, Kilo, Bravo, short of the back, United 677, Echo, 10.",
+          "asr_confidence": 0.72
+        }
+      ]
+    }
+  ]
+}

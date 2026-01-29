@@ -48,6 +48,10 @@ a { color: inherit; }
   padding: 6px 10px;
   font-size: 13px;
 }
+.select.date-select {
+  font-weight: 600;
+  min-width: 140px;
+}
 
 /* Preferences row */
 .preferences {
