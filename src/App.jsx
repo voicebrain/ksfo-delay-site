@@ -113,12 +113,12 @@ export default function App() {
       if (m) set.add(m[0].toUpperCase());
     }
     return ["All", ...Array.from(set).sort()];
-  }, []);
+  }, [daily]);
 
   const classificationOptions = useMemo(() => {
     const set = new Set(daily.map((r) => String(r.VB_Delay_Classification || "").trim()).filter(Boolean));
     return ["All", ...Array.from(set).sort()];
-  }, []);
+  }, [daily]);
 
   const filtered = useMemo(() => {
     const qq = q.trim().toLowerCase();
@@ -140,7 +140,7 @@ export default function App() {
       ].map((x) => String(x ?? "")).join(" ").toLowerCase();
       return hay.includes(qq);
     });
-  }, [q, airline, classification]);
+  }, [q, airline, classification, daily]);
 
   const avgTaxiDelay = kpiValue(stats, "Average Taxi Delay (min)");
   const maxTaxiDelay = kpiValue(stats, "Max Taxi Delay (min)");
